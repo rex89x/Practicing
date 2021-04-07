@@ -64,3 +64,79 @@ public class ArrayStack<T> extends Stack<T> {
     }
  
 }
+
+
+
+//-----------------------------------------------------------------------
+
+
+
+//Node
+public class Node<T>
+{
+    private Node<T> previous;
+    private T value;
+     
+    public Node<T> getPrevious() 
+    { 
+        return previous; 
+    }
+     
+    void setPrevious(Node<T> previous) 
+    { 
+        this.previous = previous;
+    }
+     
+    public T getValue()
+    { 
+        return value;
+    }
+     
+    void setValue(T value) 
+    { 
+        this.value = value;
+    }
+ 
+    public Node(T value)
+    {
+        this.value = value;
+    }
+}
+
+
+
+//-----------------------------------------------------------------------------
+
+
+
+//Linked List Stack
+public class LinkedListStack<T> extends Stack<T> {
+ 
+    private Node<T> last;
+     
+    @Override
+    public void push(T value) {
+        // TODO Auto-generated method stub
+        Node<T> node = new Node<T>(value);
+        node.setPrevious(last);
+        last = node;
+        ++count;
+    }
+ 
+    @Override
+    public T pop() {
+        // TODO Auto-generated method stub
+         Node<T> node = last;
+         last = last.getPrevious();
+         node.setPrevious(null);
+         --count;
+         return node.getValue();
+    }
+ 
+    @Override
+    public T peek() {
+        // TODO Auto-generated method stub
+        return last.getValue();
+    }
+ 
+}
