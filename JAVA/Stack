@@ -1,0 +1,66 @@
+//abstract stack
+public abstract class Stack<T> {
+    protected int count;
+     
+    abstract public void push(T value);
+    abstract public T pop();
+    abstract public T peek();
+     
+    public int size()
+    {
+        return count;
+    }
+}
+
+
+
+//----------------------------------------------------------------
+
+
+
+//array stack
+public class ArrayStack<T> extends Stack<T> {
+ 
+    private int capacity;
+    private T[] array;
+ 
+    public ArrayStack()
+    {
+        this(10240);
+    }
+ 
+    @SuppressWarnings("unchecked")
+    public ArrayStack(int capacity)
+    {
+        this.capacity = capacity;
+        array = (T[]) new Object[capacity];
+    }
+ 
+    @SuppressWarnings("unchecked")
+    @Override
+    public void push(T value) {
+        // TODO Auto-generated method stub
+        if (count == array.length)
+        {
+            T[] newArray = (T[]) new Object[array.length + capacity];
+            System.arraycopy(array, 0, newArray, 0, array.length);
+            array = newArray;
+        }
+        array[count++] = value;
+    }
+ 
+    @Override
+    public T pop() {
+        // TODO Auto-generated method stub
+        T value = array[--count];
+        array[count] = null;
+        return value;
+    }
+ 
+    @Override
+    public T peek() {
+        // TODO Auto-generated method stub
+        return array[count - 1];
+    }
+ 
+}
