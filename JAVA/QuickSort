@@ -1,0 +1,93 @@
+//OO寫法
+import java.util.List;
+import java.util.Random;
+import java.util.ArrayList;
+ 
+public class ObjectOriented {
+    static Random random = new Random();
+ 
+    public static void Sort(int[] array) {
+        List<Integer> list = new ArrayList<Integer>();
+        for (int n : array)
+            list.add(n);
+        list = Sort(list);
+        for (int i = 0;i < array.length;++i)
+            array[i] = list.get(i);
+    }
+ 
+    public static List<Integer> Sort(List<Integer> list)
+    {
+        if (list.size() < 2)
+            return list;
+ 
+        // random pivot
+        //int pivot = list.get(random.nextInt(list.size() - 1));
+ 
+        // middle pivot
+        int pivot = list.get(list.size() / 2);
+        list.remove(list.size() / 2);
+        List<Integer> less = new ArrayList<Integer>();
+        List<Integer> greater = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
+        for (Integer n : list)
+        {
+            if (n > pivot)
+                greater.add(n);
+            else
+                less.add(n);
+        }
+        result.addAll(Sort(less));
+        result.add(pivot);
+        result.addAll(Sort(greater));
+        return result;
+    }
+}
+
+
+
+//In-Place
+import java.util.Random;
+ 
+ 
+public class InPlace {
+    static Random random = new Random();
+ 
+    public static void Sort(int[] array)
+    {
+        Sort(array, 0, array.length - 1);
+    }
+ 
+    public static void Sort(int[] array, int left, int right)
+    {
+        if (right <= left)
+            return;
+ 
+        // random pivot
+        //int pivotIndex = left + random.nextInt(right - left + 1);
+ 
+        // middle pivot
+        int pivotIndex = (left + right) / 2;
+        int pivot = array[pivotIndex];
+        Swap(array, pivotIndex, right);
+        int swapIndex = left;
+        for (int i = left; i < right; ++i)
+        {
+            if (array[i] <= pivot)
+            {
+                Swap(array, i, swapIndex);
+                ++swapIndex;
+            }
+        }
+        Swap(array, swapIndex, right);
+ 
+        Sort(array, left, swapIndex - 1);
+        Sort(array, swapIndex + 1, right);
+    }
+ 
+    private static void Swap(int[] array, int indexA, int indexB)
+    {
+        int tmp = array[indexA];
+        array[indexA] = array[indexB];
+        array[indexB] = tmp;
+    }
+}
