@@ -1,0 +1,93 @@
+//abstract queue
+public abstract class Queue<T> {
+    protected int count;
+     
+    abstract public void offer(T value);
+    abstract public T poll();
+    abstract public T peek();
+     
+    public int size()
+    {
+        return count;
+    }
+}
+
+
+
+//--------------------------------------------------------------
+
+
+
+//Node
+public class Node<T>
+{
+    private Node<T> next;
+    private T value;
+     
+    public Node<T> getNext() 
+    { 
+        return next; 
+    }
+     
+    void setNext(Node<T> next) 
+    { 
+        this.next = next;
+    }
+     
+    public T getValue()
+    { 
+        return value;
+    }
+     
+    void setValue(T value) 
+    { 
+        this.value = value;
+    }
+ 
+    public Node(T value)
+    {
+        this.value = value;
+    }
+}
+
+
+
+//--------------------------------------------------------------------
+
+
+
+//Linked List queue
+public class LinkedListQueue<T> extends Queue<T> {
+ 
+    private Node<T> first;
+    private Node<T> last;
+     
+    @Override
+    public void offer(T value) {
+        // TODO Auto-generated method stub
+        Node<T> node = new Node<T>(value);
+        if (count == 0)
+            first = node;
+        else
+            last.setNext(node);
+        last = node;
+        ++count;
+    }
+ 
+    @Override
+    public T poll() {
+        // TODO Auto-generated method stub
+        Node<T> node = first;
+        first = first.getNext();
+        node.setNext(null);
+        --count;
+        return node.getValue();
+    }
+ 
+    @Override
+    public T peek() {
+        // TODO Auto-generated method stub
+        return first.getValue();
+    }
+ 
+}
