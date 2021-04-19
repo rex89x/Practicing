@@ -1,0 +1,133 @@
+//swap nodes in pairs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    private ListNode swapPairsRecur(ListNode head){
+        int c = 2;
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode nxt = null;
+        while(c-->0 && curr!=null){
+            nxt = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        if(curr!=null)
+            head.next = swapPairsRecur(curr);
+        return prev;
+    }
+    public ListNode swapPairs(ListNode head) {
+        return swapPairsRecur(head);
+    }
+}
+
+//RemoveDuplicates
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int reserve = 1;
+        for (int i = 1; i < nums.length; i++) {   
+            if (nums[i] != nums[i-1]) {
+                nums[reserve] = nums[i];
+                reserve++;
+            }
+        }
+        return reserve;
+    }
+}
+
+//removeElement
+public class Solution {
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != val) {
+                nums[i++] = nums[j];
+            }
+        }
+
+        return i;
+    }
+}
+
+//Implement strStr()
+class Solution {
+    public int strStr(String haystack, String needle)
+    {
+        int hlen=haystack.length(), nlen=needle.length();
+        if(nlen==0)
+            return 0;
+        if(nlen>hlen)
+            return -1;
+        if(nlen==hlen)
+            return haystack.equals(needle)?0:-1;
+        for(int x=0; x<hlen; x++)
+            if(haystack.charAt(x)==needle.charAt(0) && helper(haystack, needle, x, hlen, nlen))
+                return x;
+        return -1;
+    }
+    boolean helper(String a, String b, int x, int alen, int blen)
+    {
+        for(int y=0; y<blen; y++)
+            if(x+y>=alen || a.charAt(x+y)!=b.charAt(y))
+                return false;
+        return true;
+    }
+}
+
+//Divide two integers
+public class Solution {
+    public int divide(int dividend, int divisor){
+        double result = (double) dividend / divisor;
+        return (int) result;
+    }
+}
+
+//substring with concatenation of all words
+class Solution {
+    public List findSubstring(String s, String[] wordss) {
+
+        HashMap<String,Integer> words=new HashMap<>();
+        int oneLength=wordss[0].length();
+        for(String word:wordss)
+        {
+            words.put(word,words.getOrDefault(word,0)+1);
+        }
+
+        List<Integer> list=new ArrayList<>();
+
+        for(int i=0;i<=s.length()-(wordss.length*oneLength);i++)
+        {
+            int gotCount=0;
+            HashMap<String,Integer> map=new HashMap<>(words);
+
+            for(int j=i;j+oneLength<=s.length();j+=oneLength)
+            {
+                String key=s.substring(j,j+oneLength);
+                if(map.containsKey(key) &&  map.get(key)!=0)
+                {
+                      gotCount++;
+                      map.put( key,map.get(key)-1 );
+
+                        if(gotCount==wordss.length)
+                        {
+                            list.add(i);
+                            break;
+                        }
+                }
+                else
+                    break;
+            }
+        }
+         return list;   
+    }
+}
