@@ -1,27 +1,3 @@
 quote_page = [‘http://www.bloomberg.com/quote/SPX:IND’, ‘http://www.bloomberg.com/quote/CCMP:IND’]
 
-data = []
-for pg in quote_page:
- # 檢索網站並返回 HTML 代碼，存入變量’page’ 
- page = urllib2.urlopen(pg)
- 
-  # 用 beautifulSoup 解析 HTML 代碼並存入變量`soup`
- soup = BeautifulSoup(page, ‘html.parser’)
- 
- # 獲取“名稱”類的<div> 代碼段落並提取相應值
- name_box = soup.find(‘h1’, attrs={‘class’: ‘name’})
- name = name_box.text.strip() # strip() is used to remove starting and trailing
- 
- # 獲取股指價格數據
- price_box = soup.find(‘div’, attrs={‘class’:’price’})
- price = price_box.text
- 
- # 用元組類型存儲數據
- data.append((name, price))
- 
- # 以“添加”模式打開一個 csv 文件，以保證文件原有信息不被覆蓋 
- with open(‘index.csv’, ‘a’) as csv_file:
- writer = csv.writer(csv_file)
- 
- for name, price in data:
- writer.writerow([name, price, datetime.now()])
+
