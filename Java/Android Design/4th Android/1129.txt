@@ -1,0 +1,66 @@
+package ntub.std.hellontub;
+
+import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView txt;
+    private Button btn;
+    private Button btnc;
+    private TextView txt2,txt3;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        txt = findViewById(R.id.txt);
+        btn = findViewById(R.id.btn);
+        btnc = findViewById(R.id.btnc);
+        txt2 = findViewById(R.id.txt2);
+        txt3 = findViewById(R.id.txt3);
+        SharedPreferences spf = getSharedPreferences("username", MODE_PRIVATE);
+        String name = spf.getString("name","");
+        if(name.compareTo("")==0){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("alert")
+                    .setMessage("½Ð¿é¤J")
+                    .show();
+        }else{
+            int age = spf.getInt("age", 0);
+            String sex = spf.getString("sex", "");
+            txt.setText(name);
+            txt2.setText(String.valueOf(age));
+            txt3.setText(sex);
+        }
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = txt.getText().toString();
+                int age = Integer.parseInt(txt2.getText().toString());
+                String sex = txt3.getText().toString();
+                SharedPreferences spf = getSharedPreferences("username", MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("name", name)
+                .putInt("age", age)
+                .putString("sex", sex).commit();
+            }
+        });
+
+        btnc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences spf = getSharedPreferences("username", MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.clear().commit();
+                txt.setText("");
+                txt2.setText("0");
+                txt3.setText("");
+            }
+        });
+    }
+}

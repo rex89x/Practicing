@@ -1,0 +1,140 @@
+
+//1
+package ntub.std.hellontub;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView txt1;
+    Button btnOK;
+    TextView txtInput;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnOK = findViewById(R.id.btnOK);
+        txt1 = findViewById(R.id.txt1);
+        txtInput = findViewById(R.id.txtInput);
+
+
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str = txtInput.getText().toString();
+                txt1.setText("徐公羊吃大便"+ str);
+            }
+        });
+    }
+}
+
+
+
+//2
+package ntub.std.hellontub;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView txt;
+    Button bt1;
+    Button bt2;
+    Button bt3;
+    Button bt4;
+    Button bt5;
+    Button bt6;
+    Button bt7;
+    Button bt8;
+    Button bt9;
+    Button bt0;
+    Button bt11;
+    Button bt22;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        bt1 = findViewById(R.id.bt1);
+        bt2 = findViewById(R.id.bt2);
+        bt3 = findViewById(R.id.bt3);
+        bt4 = findViewById(R.id.bt4);
+        bt5 = findViewById(R.id.bt5);
+        bt6 = findViewById(R.id.bt6);
+        bt7 = findViewById(R.id.bt7);
+        bt8 = findViewById(R.id.bt8);
+        bt9 = findViewById(R.id.bt9);
+        bt0 = findViewById(R.id.bt0);
+        bt11 = findViewById(R.id.bt11);
+        bt22 = findViewById(R.id.bt22);
+        txt = findViewById(R.id.txt);
+        bt1.setOnClickListener(mlistener);
+        bt2.setOnClickListener(mlistener);
+        bt3.setOnClickListener(mlistener);
+        bt4.setOnClickListener(mlistener);
+        bt5.setOnClickListener(mlistener);
+        bt6.setOnClickListener(mlistener);
+        bt7.setOnClickListener(mlistener);
+        bt8.setOnClickListener(mlistener);
+        bt9.setOnClickListener(mlistener);
+        bt0.setOnClickListener(mlistener);
+        bt11.setOnClickListener(mlistener);
+        bt22.setOnClickListener(mlistener);
+    }
+    private View.OnClickListener mlistener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.bt1:
+                    txt.setText(txt.getText().toString() + "1");
+                    break;
+                case R.id.bt2:
+                    txt.setText(txt.getText().toString() + "2");
+                    break;
+                case R.id.bt3:
+                    txt.setText(txt.getText().toString() + "3");
+                    break;
+                case R.id.bt4:
+                    txt.setText(txt.getText().toString() + "4");
+                    break;
+                case R.id.bt5:
+                    txt.setText(txt.getText().toString() + "5");
+                    break;
+                case R.id.bt6:
+                    txt.setText(txt.getText().toString() + "6");
+                    break;
+                case R.id.bt7:
+                    txt.setText(txt.getText().toString() + "7");
+                    break;
+                case R.id.bt8:
+                    txt.setText(txt.getText().toString() + "8");
+                    break;
+                case R.id.bt9:
+                    txt.setText(txt.getText().toString() + "9");
+                    break;
+                case R.id.bt0:
+                    txt.setText(txt.getText().toString() + "0");
+                    break;
+                case R.id.bt11:
+                    txt.setText(txt.getText().toString() + "*");
+                    break;
+                case R.id.bt22:
+                    txt.setText(txt.getText().toString() + "#");
+                    break;
+            }
+        }
+    };
+}

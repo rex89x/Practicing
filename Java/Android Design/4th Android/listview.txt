@@ -1,0 +1,97 @@
+//string
+
+<resources>
+    <string name="app_name">HelloNTUB</string>
+    <string name="select_region_dialog_title">Spinner 對話視窗標題</string>
+    <string-array name="lblEmail">
+        <item>rex12x@gmail.com</item>
+        <item>rex23x@gmail.com</item>
+        <item>rex34x@gmail.com</item>
+        <item>rex45x@gmail.com</item>
+    </string-array>
+    <string-array name="lblName">
+        <item>鄒小明1</item>
+        <item>鄒小明2</item>
+        <item>鄒小明3</item>
+        <item>鄒小明4</item>
+    </string-array>
+    <string-array name="lblMobile">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
+
+
+
+//main
+
+package ntub.std.hellontub;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    ListView lv;
+    String[] names = {"鄒小明1", "鄒小明2", "鄒小明3", "鄒小明4"};
+    String[] emails = {"rex12x@gmail.com", "rex23x@gmail.com", "rex34x@gmail.com", "rex45x@gmail.com"};
+    String[] tel = {"0978978978", "0987987987", "0955489789", "0912555789"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        lv = findViewById(R.id.lv);
+        MyAdapter adapter = new MyAdapter();
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setMessage(names[position] + "是否打電話")
+                        .setPositiveButton("度的", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setNegativeButton("NONO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+    class MyAdapter extends BaseAdapter{
+        @Override
+        public int getCount() { return names.length; }
+        @Override
+        public Object getItem(int position) { return names[position]; }
+        @Override
+        public long getItemId(int position) { return 0; }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = LayoutInflater.from(MainActivity.this).inflate(R.layout.mylayout, null);
+            return convertView;
+        }
+    }
+}
+
+
+//

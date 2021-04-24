@@ -1,0 +1,131 @@
+package ntub.std.hellontub;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn = findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("garbage Pan")
+                        .setIcon(R.drawable.gerger)
+                        .setMessage("just push Enter")
+                        .setPositiveButton("san xiao", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("nothing", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+}
+
+//-------------------------------------------------------------------------------
+
+
+package ntub.std.hellontub;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private CheckBox cb1,cb2,cb3;
+    private RadioButton r1,r2,r3;
+    private TextView txt,txt2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        cb1 = findViewById(R.id.cb1);
+        cb2 = findViewById(R.id.cb2);
+        cb3 = findViewById(R.id.cb3);
+        r1 = findViewById(R.id.r1);
+        r2 = findViewById(R.id.r2);
+        r3 = findViewById(R.id.r3);
+        txt = findViewById(R.id.txt);
+        txt2 = findViewById(R.id.txt2);
+
+        r1.setOnCheckedChangeListener(slistener);
+        r2.setOnCheckedChangeListener(slistener);
+        r3.setOnCheckedChangeListener(slistener);
+
+        cb1.setOnCheckedChangeListener(mlistener);
+        cb2.setOnCheckedChangeListener(mlistener);
+        cb3.setOnCheckedChangeListener(mlistener);
+    }
+
+    private CompoundButton.OnCheckedChangeListener slistener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            String msg = "";
+            int cnt = 0;
+            if(cb1.isChecked()){
+                msg += cb1.getText().toString() + " ";
+                cnt++;
+            }
+            if(cb2.isChecked()){
+                msg += cb2.getText().toString() + " ";
+                cnt++;
+            }
+            if(cb3.isChecked()){
+                msg += cb3.getText().toString() + " ";
+                cnt++;
+            }
+            txt.setText("你喜歡:" + msg + "共" + cnt + "個項目");
+        }
+    };
+
+    private CompoundButton.OnCheckedChangeListener mlistener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            String msg = "";
+            int cnt = 0;
+            if(cb1.isChecked()){
+                msg += cb1.getText().toString() + " ";
+                cnt++;
+            }
+            if(cb2.isChecked()){
+                msg += cb2.getText().toString() + " ";
+                cnt++;
+            }
+            if(cb3.isChecked()){
+                msg += cb3.getText().toString() + " ";
+                cnt++;
+            }
+            txt.setText("你選擇了:" + msg + "共" + cnt + "個項目");
+        }
+    };
+}
+

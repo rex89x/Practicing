@@ -1,0 +1,106 @@
+package ntub.std.hellontub;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,View.OnLongClickListener{
+    private RadioButton rdbNo1;
+        private RadioButton rdbSmall1;
+        private RadioButton rdbBig1;
+        private RadioButton rdbNo2;
+        private RadioButton rdbSmall2;
+        private RadioButton rdbBig2;
+        private CheckBox ckPork;
+        private CheckBox ckChicken;
+        private CheckBox ckDish;
+        private Spinner DishNo;
+        private Button btntotal;
+        private TextView total;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            rdbNo1=findViewById(R.id.rdbNo1);
+            rdbSmall1=findViewById(R.id.rdbSmall1);
+            rdbBig1=findViewById(R.id.rdbBig1);
+            rdbNo2=findViewById(R.id.rdbNo2);
+            rdbSmall2=findViewById(R.id.rdbSmall2);
+            rdbBig2=findViewById(R.id.rdbBig2);
+            ckPork=findViewById(R.id.ckPork);
+        ckChicken=findViewById(R.id.ckChicken);
+        ckDish=findViewById(R.id.ckDish);
+        DishNo=findViewById(R.id.DishNo);
+        btntotal=findViewById(R.id.btntotal);
+        total=findViewById(R.id.total);
+
+        btntotal.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int tot=0;
+        if(rdbSmall1.isChecked()){
+            tot = tot + 10;
+        }
+        if(rdbSmall2.isChecked()){
+            tot=tot+10;
+        }
+        if(rdbBig1.isChecked()){
+            tot=tot+20;
+        }
+        if(rdbBig2.isChecked()){
+            tot=tot+20;
+        }
+        if(ckPork.isChecked()){
+            tot=tot+40;
+        }
+        if(ckChicken.isChecked()){
+            tot=tot+50;
+        }
+        if(ckDish.isChecked()){
+            tot=tot+30*Integer.valueOf(DishNo.getSelectedItemPosition()+1);
+        }
+        total.setText(String.valueOf(tot));
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        return false;
+    }
+}
+
+
+
+//xml  string xml
+
+<string name="select_region_dialog_title">Spinner 對話視窗標題</string>
+    <string-array name="spn_list">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+
+
+//activity xml
+
+<Spinner
+        android:id="@+id/DishNo"
+        android:layout_width="235dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="112dp"
+        android:entries="@array/spn_list"
+        android:spinnerMode="dialog"
+        android:prompt="@array/spn_list"
+        app:layout_constraintStart_toEndOf="@+id/ckDish"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />

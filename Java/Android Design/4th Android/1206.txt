@@ -1,0 +1,79 @@
+package ntub.std.hellontub;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    private Button bt1,bt2,bt3,bt4;
+    private TextView et1,et2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1=findViewById(R.id.bt1);
+        bt2=findViewById(R.id.bt2);
+        bt3=findViewById(R.id.bt3);
+        bt4=findViewById(R.id.bt4);
+        et1=findViewById(R.id.et1);
+        et2=findViewById(R.id.et2);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("bt1", "onClick: create table start");
+                SQLiteDatabase mydb = openOrCreateDatabase("msql2.db", MODE_PRIVATE, null);
+                mydb.execSQL("create table IF NOT EXISTS table01(_id integer primary key, num integer, data text)");
+                mydb.close();
+                Log.d("bt1", "onClick: create table end");
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("bt2", "onClick: insert start");
+                int num=Integer.parseInt((et1.getText().toString()));
+                String data=et2.getText().toString();
+                SQLiteDatabase mydb = openOrCreateDatabase("msql2.db", MODE_PRIVATE, null);
+                mydb.execSQL("insert into table01(num,data)"+"values(" + num + ", '" + data + "')");
+                Log.d("bt2", "onClick: SQL:insert into table01(num,data) values(" + num + ", '" + data + "')");
+                mydb.close();
+                Log.d("bt2", "onClick: insert end");
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("bt3", "onClick: delete start");
+                SQLiteDatabase mydb = openOrCreateDatabase("msql2.db", MODE_PRIVATE, null);
+                Log.d("bt3", "onclick: SQL:delete from table01 where _id=+2");
+                mydb.execSQL("delete from table01 where _id=+2");
+                mydb.close();
+                Log.d("bt3", "onClick: create table end");
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SQLiteDatabase mydb = openOrCreateDatabase("msql2.db", MODE_PRIVATE, null);
+                Log.d("bt4", "onClick: SQL: delete from table01 where _id=" + 2);
+                Cursor cursor = mydb.rawQuery("select _id, num, data from table01", null);
+                while (cursor.moveToNext()){
+                    int _id = cursor.getInt(0);
+                    int num = cursor.getInt(cursor.getColumnIndex("num"));
+                    String data = cursor.getString(2);
+                    Log.d("bt4", "onClick : _id: "+ _id);
+                    Log.d("bt4", "onClick : num: "+ num);
+                    Log.d("bt4", "onClick : data: "+ data);
+                    Log.d("bt4", "onClick : ===========================");
+                }
+                mydb.close();
+            }
+        });
+    }
+}

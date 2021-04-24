@@ -1,0 +1,237 @@
+package ntub.std.hellontub;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView txt1;
+    private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12,btn14,btn13,btn15;
+    private boolean flag = false;
+    private boolean contiOper = false;
+    private char lastOperate;
+    private int lastNum = 0;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        txt1=findViewById(R.id.txt1);
+        btn1=findViewById(R.id.btn1);
+        btn2=findViewById(R.id.btn2);
+        btn3=findViewById(R.id.btn3);
+        btn4=findViewById(R.id.btn4);
+        btn5=findViewById(R.id.btn5);
+        btn6=findViewById(R.id.btn6);
+        btn7=findViewById(R.id.btn7);
+        btn8=findViewById(R.id.btn8);
+        btn9=findViewById(R.id.btn9);
+        btn10=findViewById(R.id.btn10);
+        btn11=findViewById(R.id.btn11);
+        btn12=findViewById(R.id.btn12);
+        btn13=findViewById(R.id.btn13);
+        btn14=findViewById(R.id.btn14);
+        btn15=findViewById(R.id.btn15);
+        btn1.setOnClickListener(mlistener);
+        btn2.setOnClickListener(mlistener);
+        btn3.setOnClickListener(mlistener);
+        btn4.setOnClickListener(mlistener);
+        btn5.setOnClickListener(mlistener);
+        btn6.setOnClickListener(mlistener);
+        btn7.setOnClickListener(mlistener);
+        btn8.setOnClickListener(mlistener);
+        btn9.setOnClickListener(mlistener);
+        btn10.setOnClickListener(mlistener);
+        btn11.setOnClickListener(mlistener);
+        btn12.setOnClickListener(mlistener);
+        btn13.setOnClickListener(mlistener);
+        btn14.setOnClickListener(mlistener);
+        btn15.setOnClickListener(mlistener);
+    }
+
+    private View.OnClickListener mlistener =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn1:
+                    txt1.setText(txt1.getText().toString()+"7");
+                    break;
+                case R.id.btn2:
+                    txt1.setText(txt1.getText().toString()+"8");
+                    break;
+                case R.id.btn3:
+                    txt1.setText(txt1.getText().toString()+"9");
+                    break;
+
+                case R.id.btn5:
+                    txt1.setText(txt1.getText().toString()+"4");
+                    break;
+                case R.id.btn6:
+                    txt1.setText(txt1.getText().toString()+"5");
+                    break;
+                case R.id.btn7:
+                    txt1.setText(txt1.getText().toString()+"6");
+                    break;
+
+                case R.id.btn9:
+                    txt1.setText(txt1.getText().toString()+"1");
+                    break;
+                case R.id.btn10:
+                    txt1.setText(txt1.getText().toString()+"2");
+                    break;
+                case R.id.btn11:
+                    txt1.setText(txt1.getText().toString()+"3");
+                    break;
+
+                case R.id.btn13:
+                    txt1.setText(txt1.getText().toString()+"0");
+                    break;
+
+
+                case R.id.btn15:
+                    if(contiOper) {
+                        int result = 0;
+                        switch (lastOperate) {
+                            case '+':
+                                result = lastNum + Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '-':
+                                result = lastNum - Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '*':
+                                result = lastNum * Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '/':
+                                result = lastNum / Integer.parseInt(txt1.getText().toString());
+                                break;
+                        }
+                        lastNum = result;
+                        txt1.setText(String.valueOf(result));
+                        contiOper = false;
+                    } else {
+                        contiOper = true;
+                        lastNum = Integer.parseInt(txt1.getText().toString());
+                        txt1.setText("+");
+                    }
+                    lastOperate = '+';
+                    flag = true;
+                    break;
+                case R.id.btn12:
+                    if(contiOper) {
+                        int result = 0;
+                        switch (lastOperate) {
+                            case '+':
+                                result = lastNum + Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '-':
+                                result = lastNum - Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '*':
+                                result = lastNum * Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '/':
+                                result = lastNum / Integer.parseInt(txt1.getText().toString());
+                                break;
+                        }
+                        lastNum = result;
+                        txt1.setText(String.valueOf(result));
+                        contiOper = false;
+                    } else {
+                        contiOper = true;
+                        lastNum = Integer.parseInt(txt1.getText().toString());
+                        txt1.setText("-");
+                    }
+                    lastOperate = '-';
+                    flag = true;
+                    break;
+                case R.id.btn8:
+                    if(contiOper) {
+                        int result = 0;
+                        switch (lastOperate) {
+                            case '+':
+                                result = lastNum + Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '-':
+                                result = lastNum - Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '*':
+                                result = lastNum * Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '/':
+                                result = lastNum / Integer.parseInt(txt1.getText().toString());
+                                break;
+                        }
+                        lastNum = result;
+                        txt1.setText(String.valueOf(result));
+                        contiOper = false;
+                    } else {
+                        contiOper = true;
+                        lastNum = Integer.parseInt(txt1.getText().toString());
+                        txt1.setText("*");
+                    }
+                    lastOperate = '*';
+                    flag = true;
+                    break;
+                case R.id.btn4:
+                    if(contiOper) {
+                        int result = 0;
+                        switch (lastOperate) {
+                            case '+':
+                                result = lastNum + Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '-':
+                                result = lastNum - Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '*':
+                                result = lastNum * Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '/':
+                                result = lastNum / Integer.parseInt(txt1.getText().toString());
+                                break;
+                        }
+                        lastNum = result;
+                        txt1.setText(String.valueOf(result));
+                        contiOper = false;
+                    } else {
+                        contiOper = true;
+                        lastNum = Integer.parseInt(txt1.getText().toString());
+                        txt1.setText("/");
+                    }
+                    lastOperate = '/';
+                    flag = true;
+                    break;
+                case R.id.btn14:
+                    if(flag) {
+                        int result = 0;
+                        switch (lastOperate) {
+                            case '+':
+                                result = lastNum + Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '-':
+                                result = lastNum - Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '*':
+                                result = lastNum * Integer.parseInt(txt1.getText().toString());
+                                break;
+                            case '/':
+                                result = lastNum / Integer.parseInt(txt1.getText().toString());
+                                break;
+                        }
+                        txt1.setText(String.valueOf(result));
+                    }
+                    contiOper = false;
+                    flag = false;
+                    break;
+            }
+            }
+
+
+
+        };
+    };
+
