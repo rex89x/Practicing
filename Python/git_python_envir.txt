@@ -1,1 +1,0 @@
-https://blog.techbridge.cc/2018/04/14/how-to-setup-python-development-environment-in-windows/
