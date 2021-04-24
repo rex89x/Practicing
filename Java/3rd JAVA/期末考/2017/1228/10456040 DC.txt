@@ -1,0 +1,34 @@
+查某人
+select * 
+from student
+where stuNo = '120001'
+
+T1
+select a.stuNo, b.stuName, a.couNo, c.course,a.score
+from score a, student b, course c
+where a.stuNo = b.stuNo and a.couNo = c.couNo and a.stuNo = '120001'
+
+T2
+select a.stuNo, a.stuName, a.schNo, b.school, a.stuType, c.typeDetail
+from student a, school b, stutype c
+where a.schNo = b.schNo and a.stuType = c.stuType and a.stuNo = '120001'
+
+課堂練
+select a.stuNo, a.stuName, b.couNo, b.score
+from student a, score b
+where a.stuNo = b.stuNo and a.stuNo = ?
+
+2
+select stuNo, stuName, gender, schNo
+from student
+where stuName = ?
+
+3
+select a.stuNo, a.stuName, a.schNo, b.school, b.city
+from student a, school b
+where a.schNo = b.schNo and b.city = '台北市中山區'
+
+4
+select stuNo, stuName, gender, schNo
+from student 
+where stuName like '陳%'

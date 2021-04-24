@@ -1,0 +1,173 @@
+//j12 (2)
+
+//-----------------------------------------------------------------
+// 將一些專案中多個程式會使用的變數寫成靜態變數, 提供其他程式共用.
+// 例如:
+// 一個專案中有多個程式都使用同一個連線位址及帳號/密碼連上資料庫,
+// 不需每個程式都寫一份連線位址及帳密內容, 只要取用靜態成員即可. 
+// 因為靜態成員在系統中只有一份, 如果以後要改連其他主機, 
+// 只要改唯一一份的靜態成員內容, 其他的程式都不需修改.
+//-----------------------------------------------------------------
+class Common{
+    public static final String connection="140.131.114.10/myDB";
+    public static final String user="110001";
+    public static final String password="abc123";
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println(Common.connection);  
+        System.out.println(Common.user); 
+        System.out.println(Common.password); 
+        
+        Common.password = "abc1234";
+        System.out.println(Common.connection);  
+        System.out.println(Common.user); 
+        System.out.println(Common.password); 
+    }
+}
+
+//2
+
+class NTUB{
+    //----------------------------------------------------------------    
+    //靜態成員
+    //----------------------------------------------------------------
+    public static final String school="國立臺北商業大學";    
+    public static final String department[]={"會資系", "財稅系", "財金系", "商務系", "企管系", "資管系", "應外系", "商設系", "商創系", "數媒系"};    
+    public static final String departmentFull[]={"會計資訊系", "財政稅務系", "財務金融系", "國際商務系", "企業管理系", "資訊管理系", "應用外語系"};
+    //----------------------------------------------------------------
+    
+
+    //----------------------------------------------------------------
+    //靜態方法
+    //----------------------------------------------------------------    
+    public static String department(String stuNo){
+        try{
+            //檢查學號
+            if(!(stuNo.length()==8 && stuNo.charAt(0)=='1') && !(stuNo.length()==9 && stuNo.charAt(0)=='N')){
+                throw new Exception();
+            }
+
+            //回傳科系名稱
+            if(stuNo.length()==8){
+                if(stuNo.charAt(4)=='A'){
+                    return NTUB.department[stuNo.charAt(4) - 'A' +7];
+                }else if(stuNo.charAt(4)=='B'){
+                    return NTUB.department[stuNo.charAt(4) - 'B' +8];
+                }else if(stuNo.charAt(4)=='C'){
+                    return NTUB.department[stuNo.charAt(4) - 'C' +9];
+                }else
+                return NTUB.department[stuNo.charAt(4) - '0' - 1];
+            }else{
+                return NTUB.department[stuNo.charAt(5) - '0' - 1];
+            }    
+        }catch(Exception e){
+            return null;
+        }        
+    }    
+    public static String division(String stuNo){
+        if(stuNo.charAt(0)=='1'){return "日間部";}
+        else if(stuNo.charAt(0)=='N'){return "夜間部";}
+        else{return null;}
+    }
+    //----------------------------------------------------------------    
+}
+
+class Student {
+    private String stuNo;
+    private String stuName;
+
+    //建構元
+    public Student(String stuNo, String stuName){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+    }
+    
+    //建構元
+    public Student(){
+        this.stuNo=null;
+        this.stuName=null;
+    } 
+    
+    //getters
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getStuName(){
+        return this.stuName;
+    }
+    
+    //setters
+    public void setStuNo(String stuNo){
+        this.stuNo=stuNo;
+    }
+    public void setStuName(String stuName){
+        this.stuName=stuName;
+    }
+    
+}
+
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        //建立一個可存放多個物件的串列清單
+        ArrayList arrayList = new ArrayList();
+        
+        //將多個「學生」物件加入串列清單中
+        arrayList.add(new Student("10541001", "顏小揚"));
+        arrayList.add(new Student("10542001", "吳小緯"));
+        arrayList.add(new Student("10543001", "林小佳"));
+        arrayList.add(new Student("10544001", "徐小揚"));        
+        arrayList.add(new Student("10545001", "潘小豪")); 
+        arrayList.add(new Student("10546001", "許小綺")); 
+        arrayList.add(new Student("10547001", "謝小汝")); 
+        arrayList.add(new Student("1054A001", "張小晴")); 
+        arrayList.add(new Student("1054B001", "陳小宏")); 
+        arrayList.add(new Student("1054C001", "顏小揚"));
+        
+        arrayList.add(new Student("N10541001", "張小鈞"));
+        arrayList.add(new Student("N10542001", "沈小廷"));
+        arrayList.add(new Student("N10543001", "劉小宏"));
+        arrayList.add(new Student("N10544001", "林小豪"));        
+        arrayList.add(new Student("N10545001", "劉小安")); 
+        arrayList.add(new Student("N10546001", "楊小儱")); 
+        arrayList.add(new Student("N10547001", "陳小永")); 
+        arrayList.add(new Student("N1054A001", "宋小運")); 
+        arrayList.add(new Student("N1054A001", "方小勳")); 
+        arrayList.add(new Student("N1054A001", "劉小言"));         
+        
+        arrayList.add(new Student("N1054B01", "高小澤"));
+        arrayList.add(new Student("M1054D001", "杜小瑜"));
+        arrayList.add(new Student("1054D101", "賴小蓁"));
+        arrayList.add(new Student("1054B0102", "廖小晴")); 
+        
+        //逐一列印學生資料			
+        for(int i=0; i<arrayList.size(); i++){
+            //取出串列清單中的第i個物件		
+            Student c = (Student)arrayList.get(i);                       
+			
+            //呼叫物件的方法, 印出物件資訊			
+            System.out.println(c.getStuNo());
+            System.out.println(c.getStuName());
+            System.out.println(NTUB.department(c.getStuNo()));
+            System.out.println(NTUB.division(c.getStuNo()));
+            System.out.println("--------------------");
+        }
+        System.out.println("============================");
+        
+        System.out.println("============================");
+        /*
+        (4)
+修改Main程式, 在印出每位同學資料之後, 加印:
+======================================
+日間部:   ____ 人
+夜間部:   ____ 人
+學號錯誤: ____ 人
+學生共:   ____ 人
+======================================
+        */
+    }
+}

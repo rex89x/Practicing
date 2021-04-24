@@ -1,0 +1,179 @@
+//課堂練習 
+
+class Student {
+    public String stuNo;
+    public String stuName;
+    public char gender;
+    
+    //建構元
+    public Student(String stuNo, String stuName, char gender){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+        this.gender=gender;
+    }
+        
+    //建構元
+    public Student(){
+        this.stuNo=null;
+        this.stuName=null;
+        this.gender=' ';
+        
+    }
+}
+
+
+class Main{
+    public static void main(String args[]){
+        Student s=new Student("10556001", "王小明", 'M');
+		
+        System.out.println(s.stuNo); 
+        System.out.println(s.stuName);
+        System.out.println(s.gender);
+        
+        Student s2=new Student();
+        s2.stuNo="1002";
+        
+        System.out.println(s2.stuNo); 
+    }
+}
+
+//GETTER 做法
+
+class Student {
+    private String stuNo;
+    private String stuName;
+    private char gender;
+    
+    //建構元
+    public Student(String stuNo, String stuName, char gender){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+        this.gender=gender;
+    }
+    //getter--------------------------------------
+        
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getStuName(){
+        return this.stuName;
+    }
+    
+    public char getGender(){
+        return this.gender;
+    }
+    
+}
+
+class Main{
+    public static void main(String args[]){
+        Student s=new Student("10556001", "王小明", 'M');
+		
+        System.out.println(s.getStuNo()); 
+        System.out.println(s.getStuName());
+        System.out.println(s.getGender());
+    }
+}
+
+//課堂練習 GETTER
+
+class Student {
+    private String stuNo;
+    private String stuName;
+    private char gender;
+    
+    //建構元
+    public Student(String stuNo, String stuName, char gender){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+        this.gender=gender;
+    }
+    //getter--------------------------------------
+        
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getStuName(){
+        return this.stuName;
+    }
+    
+    public char getGender(){
+        return this.gender;
+    }
+    
+}
+
+class Course {
+    private String title;
+    private String teacher;
+    private double credit;
+    
+    public Course(String title, String teacher, double credit){
+        this.title=title;
+        this.teacher=teacher;
+        this.credit=credit;
+    }
+    //getter--------------------------------------
+    public String getTitle(){
+        return this.title;
+    }
+    
+    public String getTeacher(){
+        return this.teacher;
+    }
+    
+    public double getCredit(){
+        return this.credit;
+    }
+}
+
+class Classroom {
+    private String name;
+    private int capacity;
+    private boolean isComputerRoom;
+    
+    public Classroom(String name, int capacity, boolean isComputerRoom){
+        this.name=name;
+        this.capacity=capacity;
+        this.isComputerRoom=isComputerRoom;
+    }
+    //getter--------------------------------------
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getCapacity(){
+        return this.capacity;
+    }
+    
+    public boolean getIsComputerRoom(){
+        return this.isComputerRoom;
+    }
+}
+
+class Main{
+    public static void main(String args[]){
+        //Student----------------------------------------
+        Student s=new Student("10556001", "王小明", 'M');
+		
+        System.out.println(s.getStuNo()); 
+        System.out.println(s.getStuName());
+        System.out.println(s.getGender());
+        
+        //Course-----------------------------------------
+        Course c=new Course("程式設計", "林宏仁", 3.5);
+		
+        System.out.println(c.getTitle()); 
+        System.out.println(c.getTeacher());
+        System.out.println(c.getCredit());
+        
+        //Classroom---------------------------------------
+        Classroom cl=new Classroom("藝706", 50, true);
+		
+        System.out.println(cl.getName()); 
+        System.out.println(cl.getCapacity());
+        System.out.println(cl.getIsComputerRoom());
+    }
+}

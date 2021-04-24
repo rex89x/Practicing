@@ -1,0 +1,30 @@
+找人名
+select stuNo, stuName
+from student
+where stuName Like '陳%'
+
+兩條件
+select stuNo, stuName
+from student
+where gender = 'F' and stutype = 2
+
+以性別分組計數
+select gender, count(*)
+from student
+group by gender
+
+命名計數欄位
+select schNo, count(*) as cnt
+from student
+group by schNo
+
+排序
+select schNo, count(*) as cnt
+from student
+group by schNo
+order by cnt "desc(從大到小)"
+
+列學校
+select a.stuNo, a.stuName, a.schNo, b.school
+from student a, school b
+where a.schNo = b.schNo

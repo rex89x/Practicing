@@ -1,0 +1,54 @@
+//排列數字
+class Main {
+    public static void main(String[] args) {
+        for(int i=0; i<100; i++){
+            System.out.print(i);
+            System.out.print(" ");
+        }    
+    }
+}
+
+//個人寫法
+class Main {
+    public static void main(String[] args) {
+        int scores[]={67, 84, 76, 89, 40, 60, 65, 80, 96, 82, 63};
+		
+        double total=0;
+        for(int s:scores){
+            total+=s;
+        }	    
+		double avg=total/scores.length;	
+        System.out.printf("average=%6.2f \n",avg);
+        
+        int cnt=0;
+        double fin=0;
+        while(cnt<=10){
+            double k=((scores[cnt]-avg)*(scores[cnt]-avg))/10;
+            fin+=k;
+            cnt++;
+        }
+        System.out.println(fin);
+    }
+}
+
+//老師寫法
+class Main {
+    public static void main(String[] args) {
+        int scores[]={67, 84, 76, 89, 40, 60, 65, 80, 96, 82, 63};
+		
+        double total=0;
+        for(int s:scores){
+            total+=s;
+        }	    
+		double avg=total/scores.length;
+        System.out.printf("average=%6.2f \n",avg);
+        
+        double total2=0;
+        for(int s:scores){
+            total2+=Math.pow(s-avg, 2);
+        }	    
+        
+        double v=total2/(scores.length-1);
+        System.out.printf("ans=%.3f",v);
+    }
+}

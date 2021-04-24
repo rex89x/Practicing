@@ -1,0 +1,65 @@
+//HW 上課實作
+//1
+class Main {
+    public static void main(String[] args) {
+        String s="王小明";
+        System.out.println(s.charAt(0));
+    }
+}
+//2
+class Main {
+    public static void main(String[] args) {
+        String s="王小明";
+        System.out.println(s.substring(1,3));
+    }
+}
+
+//3 判斷男女
+class Main {
+    public static void main(String[] args) {
+        String man="H123456789";
+        if(man.charAt(1)=='1'){
+            System.out.println("male");
+        }else if(man.charAt(1)=='2'){
+            System.out.println("female");
+        }else{
+            System.out.println("error");
+        }
+    }
+}
+
+//4 判斷科系
+class Main {
+    public static void main(String[] args) {
+        String std="10456040";
+        if(std.charAt(4)=='6'){
+            System.out.println("資管科");
+        }else{
+            System.out.println("非資管科");
+        }
+    }
+}
+
+//5 判斷是否有5碼
+class Main {
+    public static void main(String[] args) {
+        String user="12345";
+        if(user.length()<5){
+            System.out.println("有誤");
+        }else{
+            System.out.println("正確");
+        }
+    }
+}
+
+//6 判斷身分證字號是否正確
+class Main {
+    public static void main(String[] args) {
+        String passnum="H1234555789";
+        if(passnum.length()==10){
+            System.out.println("正確");
+        }else{
+            System.out.println("有誤");
+        }
+    }
+}

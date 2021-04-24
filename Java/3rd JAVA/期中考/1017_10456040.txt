@@ -1,0 +1,194 @@
+//課堂練習輸入出
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        Scanner scanner=new Scanner(System.in);
+        //產生一個鍵盤輸入物件
+        System.out.print("請輸入:");
+        String s1 = scanner.next();
+        
+        System.out.print("請輸入:");
+        String s2 = scanner.next();
+        
+        System.out.print("請輸入:");
+        String s3 = scanner.next();
+		    
+		    try{        
+            int a1=Integer.parseInt(s1);
+            int a2=Integer.parseInt(s2);
+            int a3=Integer.parseInt(s3);
+            
+            int mx=Math.max(Math.max(a1,a2),a3);
+            int mn=Math.min(Math.min(a1,a2),a3);
+            int md=(a1+a2+a3)-mx-mn;
+            System.out.printf("最大數為:%d \n", mx);
+            System.out.printf("最小數為:%d \n", mn);
+            System.out.printf("中間數為:%d", md);
+        }catch(Exception e){
+            System.out.println("請輸入整數");
+            return;            
+        }            
+        
+       
+        
+
+        
+    }
+}
+
+//求公因數 System in
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        
+        Scanner scanner=new Scanner(System.in);
+		
+        
+        System.out.print("請輸入:");
+        String s1 = scanner.next();
+
+        
+        
+        try{
+            int a1=Integer.parseInt(s1);
+            for(int i=1; i<=a1; i++){
+                if(a1%i==0){
+                    System.out.printf("%d \n",i);
+                }
+            }
+        }catch(NumberFormatException e1){
+            System.out.println("請輸入整數");                        
+        }
+    }
+}
+
+//分段1
+
+class Student{
+    public String stuNo;
+    public String stuName;
+    public char gender;
+}
+
+class Main{
+    public static void main(String args[]){
+        Student s=new Student();   //建立一個Student物件
+
+        s.stuNo="10556001";   //設定物件的成員值
+        s.stuName="王小明";
+        s.gender='M';
+		
+        System.out.println(s.stuNo);        //取出成員值
+        System.out.println(s.stuName);
+        System.out.println(s.gender);
+        
+        Student s2=new Student();   //建立一個Student物件
+
+        s2.stuNo="10556002";   //設定物件的成員值
+        s2.stuName="陳小明";
+        s2.gender='M';
+		
+        System.out.println(s2.stuNo);        //取出成員值
+        System.out.println(s2.stuName);
+        System.out.println(s2.gender);
+    }
+}
+
+//分段2
+
+class Student{
+    public String stuNo;
+    public String stuName;
+    public char gender;
+    
+    
+    
+    public Student(String stuNo, String stuName, char gender){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+        this.gender=gender;
+	}
+}
+
+class Main{
+    public static void main(String args[]){
+        Student s=new Student("10556001", "王小明",'m');   //建立一個Student物件
+
+		
+        System.out.println(s.stuNo);        //取出成員值
+        System.out.println(s.stuName);
+        System.out.println(s.gender);
+    }
+}
+
+//分段練習
+
+class Employee{
+    public String empNo;
+    public String empName;
+    public char department;
+    
+    
+    
+    public Employee(String empNo, String empName, char department){
+        this.empNo=empNo;
+        this.empName=empName;
+        this.department=department;
+    }
+}
+
+class Student{
+    public String stuNo;
+    public String stuName;
+    public char gender;
+    
+    
+    
+    public Student(String stuNo, String stuName, char gender){
+        this.stuNo=stuNo;
+        this.stuName=stuName;
+        this.gender=gender;
+    }
+}
+
+class Customer{
+    public String cusNo;
+    public String name;
+    public String address;
+    public String tel;
+    
+    
+    
+    public Customer(String cusNo, String name, String address, String tel){
+        this.cusNo=cusNo;
+        this.name=name;
+        this.address=address;
+        this.tel=tel;
+    }
+}
+
+
+class Main{
+    public static void main(String args[]){
+        Student s=new Student("10556001", "王小明",'m');   
+        
+        System.out.println(s.stuNo);        
+        System.out.println(s.stuName);
+        System.out.println(s.gender);
+        
+        Employee e=new Employee("10556001","王大明",'a');
+        
+        System.out.println(e.empNo);        
+        System.out.println(e.empName);
+        System.out.println(e.department);
+        
+        Customer c=new Customer("10556001","王大明","中山路800號","0920035439");
+        
+        System.out.println(c.cusNo);        
+        System.out.println(c.name);
+        System.out.println(c.address);
+        System.out.println(c.tel);
+    }
+}

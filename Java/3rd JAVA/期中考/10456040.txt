@@ -1,0 +1,56 @@
+//Math.PI
+class Main {
+    public static void main(String[] args) {
+        int a =12;
+        double i=Math.pow(a,2)*Math.PI;
+        System.out.println(i);
+    }
+}
+
+//char
+class Main {
+    public static void main(String[] args) {
+        char i='明';
+        System.out.println(i);
+    }
+}
+
+//boolean
+//算數運算、邏輯運算[TRUE,FALSE]
+class Main {
+    public static void main(String[] args) {
+        boolean i=true;
+        boolean j=(10-5)>10; //|| or,&& and
+        System.out.println(i);
+        System.out.println(j);
+    }
+}
+
+//字串轉成大小寫
+class Main {
+    public static void main(String[] args) {
+        String s="Hello";
+        String t=s.toUpperCase();
+        String u=s.toLowerCase();
+        System.out.println(t);
+        System.out.println(u);
+    }
+}
+
+//切割文字
+class Main {
+    public static void main(String[] args) {
+        String s="1234567890";
+        System.out.println(s);
+        System.out.println(s.subSequence(4,5));
+    }
+}
+
+//計算內容
+class Main {
+    public static void main(String[] args) {
+        String s="HELLO";
+        System.out.println(s.subString(s.length()-1,s.length()));
+    }
+}
+

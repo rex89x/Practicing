@@ -1,0 +1,132 @@
+//數學運算
+import java.lang.*; //import匯入 java.lang套件
+/*Static 靜態在記憶體只有一份 (Math.sqrt)*/
+import java.lang.*;
+import java.lang.Math;
+import java.lang.System;
+class Main {
+    public static void main(String[] args) {
+        double i=Math.sqrt(13);
+        System.out.println(i);
+        System.out.printf("結果:%1.4f\n", i);
+        //-----------------------------
+        String s="Hello";
+        System.out.println(s.length()); //s.length 非靜態方法 跟著物件
+    }
+}
+
+//數學運算
+import java.lang.*;
+
+class Main {
+    public static void main(String[] args) {
+        double i=10*10*Math.PI;
+        System.out.println(i);
+    }
+}
+
+//數學運算
+class Main {
+    public static void main(String[] args) {
+        int total=8000;
+    
+        if(total>10000){ //可以直接接total*=0.9 || {total*=0.9}
+            //total*=0.9;
+            total=total*0.9;
+        }
+    
+        System.out.println(total);
+    }
+}
+
+//課堂練習 1
+class Main {
+    public static void main(String[] args) {
+        int total=85000;
+        double commission;
+        if(total>100000){
+            commission=total*0.12;
+    	  }else{
+    	      commission=total*0.08;
+    	  }
+        System.out.println((int)commission);
+    }
+}
+
+//課堂練習2
+class Main {
+    public static void main(String[] args) {
+        int total=6500;
+        double commission;
+        if(total>150000){
+            commission=total*0.18;
+    	  }else if(total<=150000 && total >=100000){
+    	      commission=total*0.12;
+    	  }else{
+    	      commission=total*0.08;
+    	  }
+        System.out.println((int)commission);
+    }
+}
+
+//課堂練習3
+class Main {
+    public static void main(String[] args) {
+        int total=180000;
+        char rank='B';
+        double commission;
+        if(rank=='A' && total>=100000){
+            commission=total*0.15;
+    	  }else{
+    	      commission=total*0.12;
+    	  }
+    	  //---------------------------------------
+    	  if(rank=='B'){
+    	      if(total>=100000){
+    	          commission=total*0.1;
+    	      }else{
+    	          commission=total*0.06;
+    	      }
+    	  }
+    	  if(rank=='C'){
+    	      if(total>=100000){
+    	          commission=total*0.1;
+    	      }else{
+    	          commission=total*0.06;
+    	      }
+    	  }
+        System.out.println((int)commission);
+    }
+}
+
+//課堂練習4
+class Main {
+    public static void main(String[] args) {
+        int total=180000;
+        String empno="A001";
+        double commission;
+        if(empno.charAt(0)=='A'){
+            commission=total*0.15;
+    	  }else{
+    	      commission=total*0.12;
+    	  }
+    	  //---------------------------------------
+    	  if(empno.charAt(0)=='B'){
+    	      if(total>=100000){
+    	          commission=total*0.1;
+    	      }else{
+    	          commission=total*0.06;
+    	      }
+    	  }
+    	  //-------------------------------------------
+    	  if(empno.charAt(0)=='C'){
+    	      if(total>=100000){
+    	          commission=total*0.1;
+    	      }else{
+    	          commission=total*0.06;
+    	      }
+    	  }
+        System.out.println((int)commission);
+    }
+}
+//課堂練習5

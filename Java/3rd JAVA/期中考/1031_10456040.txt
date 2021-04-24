@@ -1,0 +1,240 @@
+//課堂練習 DATA 最大值 最小值 中間值 總和 平均
+
+import java.util.*;
+
+//自行定義的類別
+class MyMath{
+    //回傳3個數中最大值的靜態方法
+    //傳入:3個待比較數字. 
+    //傳回:最大者.
+    public static double max(double a, double b, double c){
+        return Math.max(Math.max(a, b), c);
+    }
+
+    //回傳一個數值array的加總
+    //傳入:1個數字陣列. 
+    //傳回:陣列中的數字總和.
+    public static double total(double[] data){
+        double tot=0;
+        
+        for(int i=0; i<data.length; i++){
+            tot+=data[i];
+        }
+        
+        return tot;
+    }
+    
+    public static double average(double[] data){
+        double tot=0;
+        double ans=0;
+        
+        for(int i=0; i<data.length; i++){
+            tot+=data[i];
+            ans=tot/data.length;
+        }
+        return ans;
+    }
+    
+    public static double max(double[] data){
+        Arrays.sort(data);
+        return data[data.length-1];
+    }
+    
+    public static double min(double[] data){
+        Arrays.sort(data);
+        return data[0];
+    }
+    
+    public static double median(double[] data){
+        Arrays.sort(data);
+        if(data.length%2==1){
+            return data[(data.length-1)/2+1];
+        }else{
+            return data[((data.length/2)+((data.length/2)+1))/2];
+        }
+        
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println(MyMath.max(10, 3, 9));
+        
+        double[] data={10, 18.5, 10.3, 16, 21, 17.4, 22, 12, 15, 12, 13.4, 16.8, 11.9};
+        System.out.println(MyMath.total(data));
+        System.out.println(MyMath.average(data));
+        System.out.println(MyMath.max(data));
+        System.out.println(MyMath.min(data));
+        System.out.println(MyMath.median(data));
+    }
+}
+
+
+//課堂練習 BONUS 
+
+//員工相關的類別
+class EmployeeFunction{
+    //正職員工的薪水計算
+    //傳入:職等, 加班時數. 
+    //傳回:薪水
+    public static int salary(char rank, int overHours){
+        int baseSalary;
+		
+        if(rank=='A'){
+            baseSalary=30000;
+        }else{
+            baseSalary=25000;
+        }	    
+			
+        return baseSalary + 150*overHours;	//正職月薪=底薪+每小時150元加班費
+    }
+
+
+    //兼職員工的薪水計算
+    //傳入:上班時數. 
+    //傳回:薪水    
+    public static int salary(int hours){
+        return 125*hours;  //兼職薪水=每小時125元
+    }
+    
+    public static int salary(int hours, int bonus){
+        return 125*hours+bonus;  //兼職薪水=每小時125元
+    }
+    
+    
+    //正職員工的傭金計算 
+    //傳入:職等, 銷售總金額. 
+    //傳回:傭金
+    public static int commission(char rank, int total){
+        int commission;
+
+        switch(rank){
+            case 'A':
+                commission=(int)(total*0.15);
+                break;
+            case 'B':
+                commission=(int)(total*0.12);
+                break;
+            case 'C':
+                commission=(int)(total*0.08);
+                break;
+            default:
+                commission=(int)(total*0.05);
+        }
+
+        return commission;
+    }    
+}
+
+class Main {
+    public static void main(String[] args) {
+        //薪水
+        System.out.println(EmployeeFunction.salary('A', 20));
+        System.out.println(EmployeeFunction.salary(180));
+        System.out.println(EmployeeFunction.salary(180,3000));
+        System.out.println("----------");
+        
+        //傭金
+        int commission=EmployeeFunction.commission('A', 180000);
+        System.out.println(commission);
+        System.out.println("----------");        
+    }
+}
+
+//練習1
+
+class ElectricityBill{
+    /*
+    傳入用電度數, 回傳電費.
+
+電費計算方式如下(無條件進位):
+---------------------------------
+  「用電度數」    每度（元）
+---------------------------------
+  120度以內       2.10 	 
+  121-330度       3.02 	 
+  331-500度       4.39 	 
+  501-700度       5.44 	 
+  701-1000度      6.16 	 
+  1001度以上      6.71 	  
+---------------------------------
+例如:用電550度, 電費=5.44*550元
+    */
+    public static int fee(int degree){
+        double total;
+        if(degree<=120){
+            total=2.10*degree;
+        }else if(degree<=330){
+            total=3.02*degree;
+        }else if(degree<=500){
+            total=4.39*degree;
+        }else if(degree<=700){
+            total=5.44*degree;
+        }else if(degree<=1000){
+            total=6.16*degree;
+        }else{
+            total=6.71*degree;
+        }
+    }
+}
+
+class Main{
+    public static void main(String args[]){
+        //印出以下用電的電費	
+        System.out.println(ElectricityBill.fee(1200)); 
+        System.out.println(ElectricityBill.fee(750)); 
+        System.out.println(ElectricityBill.fee(650)); 
+        System.out.println(ElectricityBill.fee(450)); 
+        System.out.println(ElectricityBill.fee(250)); 
+        System.out.println(ElectricityBill.fee(110)); 	
+    }
+}
+
+//練習2
+
+class StudentFunction{
+    
+    public static String department(String stuNo){
+        /*if(stuNo==" "){return "null";}
+        if(stuNo.length>8 || stuNo.length<8){return "null";}*/
+        if(stuNo.charAt(4)=='1'){
+            return "會資";
+        }else if(stuNo.charAt(4)=='2'){
+            return "財金";
+        }else if(stuNo.charAt(4)=='3'){
+            return "財稅";
+        }else if(stuNo.charAt(4)=='4'){
+            return "商務";
+        }else if(stuNo.charAt(4)=='5'){
+            return "企管";
+        }else if(stuNo.charAt(4)=='6'){
+            return "資管";
+        }else if(stuNo.charAt(4)=='7'){
+            return "應外";
+        }else if(stuNo.charAt(4)=='A'){
+            return "商設";
+        }else if(stuNo.charAt(4)=='B'){
+            return "商創";
+        }else if(stuNo.charAt(4)=='C'){
+            return "數媒";
+        }
+    }
+}
+
+class Main{
+    public static void main(String args[]){
+        //印出以下學號的科系名稱	
+        System.out.println(StudentFunction.department("10551001")); 
+        System.out.println(StudentFunction.department("10552001")); 
+        System.out.println(StudentFunction.department("10553001")); 
+        System.out.println(StudentFunction.department("10554001")); 
+        System.out.println(StudentFunction.department("10555001")); 
+        System.out.println(StudentFunction.department("10556001")); 
+        System.out.println(StudentFunction.department("10557001")); 
+        System.out.println(StudentFunction.department("1055A001")); 
+        System.out.println(StudentFunction.department("1055B001")); 
+        System.out.println(StudentFunction.department("1055C001")); 
+        System.out.println(StudentFunction.department("105560012")); 
+        System.out.println(StudentFunction.department("1055D001")); 		
+    }
+}

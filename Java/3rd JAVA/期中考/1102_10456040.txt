@@ -1,0 +1,506 @@
+//練習10C
+
+class Transcript {
+    private String stuNo;
+    private String name;
+    private int chi;
+    private int eng;
+    private int mat;
+
+    //建構元
+    public Transcript(String stuNo, String name, int chi, int eng, int mat){
+        this.stuNo=stuNo;
+        this.name=name;
+        this.chi=chi;
+        this.eng=eng;
+        this.mat=mat;
+    }
+    
+    //建構元
+    public Transcript(){
+        this.stuNo=null;
+        this.name=null;
+        this.chi=0;
+        this.eng=0;
+        this.mat=0;
+    } 
+    
+    //getters
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getChi(){
+        return this.chi;
+    }  
+    
+    public int getEng(){
+        return this.eng;
+    }
+    
+    public int getMat(){
+        return this.mat;
+    }
+    
+    //setters
+    public void setStuNo(String stuNo){
+        this.stuNo=stuNo;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setChi(int chi){
+        this.chi=chi;
+    }
+    public void setEng(int eng){
+        this.eng=eng;
+    }
+    public void setMat(int mat){
+        this.mat=mat;
+    }
+}
+
+
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        //建立一個可存放多個物件的串列清單
+        ArrayList arrayList = new ArrayList();
+        
+        //將多個「成績單」物件加入串列清單中
+        arrayList.add(new Transcript("1001", "黃小傑", 76, 83, 64));
+        arrayList.add(new Transcript("1002", "王小揚", 45, 90, 75));
+        arrayList.add(new Transcript("1003", "廖小毅", 100, 40, 35));
+        arrayList.add(new Transcript("1004", "張小君", 70, 85, 60));
+        arrayList.add(new Transcript("1005", "陳小臻", 80, 65, 75));        
+		
+        //逐一列印成績單資料			
+        for(int i=0; i<arrayList.size(); i++){
+            //取出串列清單中的第i個物件		
+            Transcript c = (Transcript)arrayList.get(i);                       
+			
+            //呼叫物件的方法, 印出物件資訊			
+            System.out.println("學號:" + c.getStuNo());
+            System.out.println("姓名:" + c.getName());
+            System.out.println("國文:" + c.getChi());
+            System.out.println("英文:" + c.getEng());
+            System.out.println("數學:" + c.getMat());
+            System.out.println("--------------------");
+        }
+    }
+}
+
+//練習(2)
+
+
+class Transcript {
+    private String stuNo;
+    private String name;
+    private int chi;
+    private int eng;
+    private int mat;
+
+    //建構元
+    public Transcript(String stuNo, String name, int chi, int eng, int mat){
+        this.stuNo=stuNo;
+        this.name=name;
+        this.chi=chi;
+        this.eng=eng;
+        this.mat=mat;
+    }
+    
+    //建構元
+    public Transcript(){
+        this.stuNo=null;
+        this.name=null;
+        this.chi=0;
+        this.eng=0;
+        this.mat=0;
+    } 
+    
+    //getters
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getChi(){
+        return this.chi;
+    }  
+    
+    public int getEng(){
+        return this.eng;
+    }
+    
+    public int getMat(){
+        return this.mat;
+    }
+    
+    //setters
+    public void setStuNo(String stuNo){
+        this.stuNo=stuNo;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setChi(int chi){
+        this.chi=chi;
+    }
+    public void setEng(int eng){
+        this.eng=eng;
+    }
+    public void setMat(int mat){
+        this.mat=mat;
+    }
+    
+    /*
+    修改「成績單」(Transcript)類別, 增加3個方法, 如下:
+增加方法:
+  (1) 計算總分, public int total()
+  (2) 計算平均, public double average()
+      (小數2位, 無條件捨去)
+  (3) 計算不及格科目個數, public int notPass()
+  
+  */
+    public int total(){
+        int i=chi+eng+mat;
+        return i;
+    }
+  
+    public double average(){
+        double j=(chi+eng+mat)/3;
+        return Math.floor((j*100)/100);
+    }
+    
+    public int notPass(){
+        int k=0;
+        if(chi<60){k++;}
+        if(eng<60){k++;}    
+        if(mat<60){k++;}
+        return k;
+    }
+}
+
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        //建立一個可存放多個物件的串列清單
+        ArrayList arrayList = new ArrayList();
+        
+        //將多個「成績單」物件加入串列清單中
+        arrayList.add(new Transcript("1006", "江小萱", 66, 73, 84));
+        arrayList.add(new Transcript("1007", "胡小家", 45, 95, 55));
+        arrayList.add(new Transcript("1008", "陳小儒", 85, 55, 90));
+        arrayList.add(new Transcript("1009", "黃小妤", 60, 70, 60));
+        arrayList.add(new Transcript("1010", "卓小依", 60, 100, 45));        
+		
+        //逐一列印成績單資料			
+        for(int i=0; i<arrayList.size(); i++){
+            //取出串列清單中的第i個物件		
+            Transcript c = (Transcript)arrayList.get(i);                       
+			
+            //呼叫物件的方法, 印出物件資訊			
+            System.out.println("學號:" + c.getStuNo());
+            System.out.println("姓名:" + c.getName());
+            System.out.println("國文:" + c.getChi());
+            System.out.println("英文:" + c.getEng());
+            System.out.println("數學:" + c.getMat());
+            System.out.println("總分:" + c.total());		
+            System.out.println("平均:" + c.average());	
+            System.out.println("未過:" + c.notPass());				
+            System.out.println("--------------------");
+        }
+    }
+}
+
+//練習(3)
+
+class Transcript {
+    private String stuNo;
+    private String name;
+    private int chi;
+    private int eng;
+    private int mat;
+
+    //建構元
+    public Transcript(String stuNo, String name, int chi, int eng, int mat){
+        this.stuNo=stuNo;
+        this.name=name;
+        this.chi=chi;
+        this.eng=eng;
+        this.mat=mat;
+    }
+    
+    //建構元
+    public Transcript(){
+        this.stuNo=null;
+        this.name=null;
+        this.chi=0;
+        this.eng=0;
+        this.mat=0;
+    } 
+    
+    //getters
+    public String getStuNo(){
+        return this.stuNo;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getChi(){
+        return this.chi;
+    }  
+    
+    public int getEng(){
+        return this.eng;
+    }
+    
+    public int getMat(){
+        return this.mat;
+    }
+    
+    //setters
+    public void setStuNo(String stuNo){
+        this.stuNo=stuNo;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setChi(int chi){
+        this.chi=chi;
+    }
+    public void setEng(int eng){
+        this.eng=eng;
+    }
+    public void setMat(int mat){
+        this.mat=mat;
+    }
+    
+    /*
+    修改「成績單」(Transcript)類別, 增加3個方法, 如下:
+增加方法:
+  (1) 計算總分, public int total()
+  (2) 計算平均, public double average()
+      (小數2位, 無條件捨去)
+  (3) 計算不及格科目個數, public int notPass()
+  
+  */
+    public int total(){
+        int i=chi+eng+mat;
+        return i;
+    }
+  
+    public double average(){
+        double j=(chi+eng+mat)/3;
+        return Math.floor(j*100)/100;
+    }
+    
+    public int notPass(){
+        int k=0;
+        if(chi<60){k++;}
+        if(eng<60){k++;}    
+        if(mat<60){k++;}
+        return k;
+    }
+    
+    
+    /*傳入的3個參數, 分別是國文, 英文及數學的加權.
+         成績*加權 = 加權分數, 
+         所有科目的加權分數總和/總加權數 = 加權平均.	  
+         計算至小數2位, 無條件捨去.
+         */
+    
+    
+    public double average(double wtChi, double wtEng, double wtMat){
+        double l=(wtChi*chi+wtEng*eng+wtMat*mat)/(wtChi+wtEng+wtMat);
+        return Math.floor(l*100)/100;
+    } 
+    
+}
+
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        //建立一個可存放多個物件的串列清單
+        ArrayList arrayList = new ArrayList();
+        
+        //將多個「成績單」物件加入串列清單中
+        arrayList.add(new Transcript("1011", "鄒小明", 65, 43, 92));
+        arrayList.add(new Transcript("1012", "林小倫", 35, 65, 77));
+        arrayList.add(new Transcript("1013", "賴小茹", 85, 65, 60));
+        arrayList.add(new Transcript("1014", "李小澄", 60, 70, 45));
+        arrayList.add(new Transcript("1015", "張小龍", 55, 45, 45));  
+		double totChi=0;
+		double totEng=0;
+		double totMat=0;
+		
+        //逐一列印成績單資料			
+        for(int i=0; i<arrayList.size(); i++){
+            //取出串列清單中的第i個物件		
+            Transcript c = (Transcript)arrayList.get(i);                       
+			
+            //呼叫物件的方法, 印出物件資訊			
+            System.out.println("學號:" + c.getStuNo());
+            System.out.println("姓名:" + c.getName());
+            System.out.println("國文:" + c.getChi());
+            System.out.println("英文:" + c.getEng());
+            System.out.println("數學:" + c.getMat());
+            System.out.println("總分:" + c.total());		
+            System.out.println("平均:" + c.average());	
+            System.out.println("加權:" + c.average(2.5, 2, 1));			
+            System.out.println("未過:" + c.notPass());				
+            System.out.println("--------------------");
+            totChi+=c.getChi();
+            totEng+=c.getEng();
+            totMat+=c.getMat();
+        }
+
+        //印出全班平均分數(某科目全班總分/全班人數)
+        System.out.println("全班國文平均:" + Math.floor(totChi/arrayList.size()*100)/100);
+        System.out.println("全班英文平均:" + Math.floor(totEng/arrayList.size()*100)/100);
+        System.out.println("全班數學平均:" + Math.floor(totMat/arrayList.size()*100)/100);
+        System.out.println("--------------------");	
+    }
+}
+
+//練習10E
+
+import java.util.*;
+
+class Main{
+    public static void main(String args[]){
+        //建立一個可存放多個物件的串列清單
+        ArrayList arrayList = new ArrayList();
+        
+        //將多個「員工」物件加入串列清單中
+        arrayList.add(new Employee("1001", "張小鈞", 'A', 18, 5));
+        arrayList.add(new Employee("1002", "沈小廷", 'A', 16, 8));
+        arrayList.add(new Employee("1003", "劉小宏", 'B', 14, 6));
+        arrayList.add(new Employee("1004", "林小豪", 'B', 12, 0));
+        arrayList.add(new Employee("1005", "劉小安", 'C', 3, 10));        
+		
+        //逐一列印員工資料			
+        for(int i=0; i<arrayList.size(); i++){
+            //取出串列清單中的第i個物件		
+            Employee c = (Employee)arrayList.get(i);                       
+			
+            //呼叫物件的方法, 印出物件資訊			
+            System.out.println("編號:" + c.getEmpNo());
+            System.out.println("姓名:" + c.getName());
+            System.out.println("職等:" + c.getRank());
+            System.out.println("年資:" + c.getSeniority());
+            System.out.println("薪水:" + c.salary());  
+            System.out.println("稅金:" + c.tax());             
+            System.out.println("--------------------");
+        }
+    }
+}
+
+//--------------------------
+//員工類別
+//--------------------------
+class Employee{
+    //成員
+    private String empNo;     //編號
+    private String name;      //姓名
+    private char rank;        //職等    
+    private int seniority;    //年資
+    private int overHours;    //加班時數
+    
+    //建構元
+    public Employee(String empNo, String name, char rank, int seniority, int overHours){
+        this.empNo=empNo;
+        this.name=name;
+        this.rank=rank;
+        this.seniority=seniority;
+        this.overHours=overHours;        
+    }
+    
+    //建構元
+    public Employee(){
+        this.empNo=null;
+        this.name=null;
+        this.rank=' ';
+        this.seniority=0;
+        this.overHours=0;        
+    }
+    
+    //setters
+    public void setEmpNo(String empNo){this.empNo=empNo;}
+    public void setName(String name){this.name=name;}
+    public void setRank(char rank){this.rank=rank;}
+    public void setSeniority(int seniority){this.seniority=seniority;}
+    public void setOverHours(int overHours){this.overHours=overHours;}
+    
+    //getters
+    public String getEmpNo(){return this.empNo;}
+    public String getName(){return this.name;}
+    public char getRank(){return this.rank;}
+    public int getSeniority(){return this.seniority;}  
+    public int getOverHours(){return this.overHours;}     
+    
+    //計算薪水的方法---------------   
+    public int salary(){
+        int baseSalary, overTimePay;  //底薪, 每小時加班費
+        
+        if(this.rank=='A'){
+            baseSalary=40000;
+            overTimePay=280;
+        }else if(this.rank=='B'){
+            baseSalary=36000;
+            overTimePay=230;
+        }else{
+            baseSalary=30000;
+            overTimePay=180;           
+        }
+        
+        int total=baseSalary + overTimePay*this.overHours;
+        return total;
+    }
+    //----------------------------
+    
+    /*
+    其中, 月薪>50,000元, 預扣稅金6%;
+月薪介於30,000(含)~50,000(含)之間, 4.5%;
+不足30000, 3%.
+    */
+    public int tax(){
+        int baseSalary, overTimePay;  //底薪, 每小時加班費
+        
+        if(this.rank=='A'){
+            baseSalary=40000;
+            overTimePay=280;
+        }else if(this.rank=='B'){
+            baseSalary=36000;
+            overTimePay=230;
+        }else{
+            baseSalary=30000;
+            overTimePay=180;           
+        }
+        
+        int total=baseSalary + overTimePay*this.overHours;
+        
+        if(total>50000){
+            return total*6/100;
+        }else if(total<=50000 && total>=30000){
+            return total*45/1000;
+        }else if(total<30000){
+            return total*3/100;
+        }
+    }
+}
+
+//練習10D
+
