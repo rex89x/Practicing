@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body{
+	background:#FFFDAA;
+	font-family: 'Rokkitt', serif;
+}
+
+
+div.container{
+	width:800px;
+	box-sizing:border-box; /*連邊線一起算進去*/
+	background:#fff;
+	margin:30px auto;
+	text-align:justify;
+	border:dotted 5px #000; /*solid實線*/
+	box-shadow:0px 0px 10px 1px #000;
+}
+
+div.header{
+	padding:0 30px; /*邊界*/
+	height:80px; /*高度*/
+	line-height:80px; /*行高*/
+	background:#D4D26A; /*背景*/
+	color:#807D15;  /*字顏色*/
+	letter-spacing:2px; /*字與字的空隙*/
+}
+
+div.header h1{
+	margin:0;
+}
+
+div.content{
+	padding:20px 30px; /*邊界*/
+}
+
+div.content span.first{
+	font-size:30px;
+	font-weight:600;
+}
+
+div.footer{
+	height:60px;
+	background:#555300;
+	padding:30px;
+	line-height:60px;
+	color:#ffaaaa;
+}

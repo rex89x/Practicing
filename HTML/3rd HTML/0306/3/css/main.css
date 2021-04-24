@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+/* CSS Document */
+
+html body{
+	background:#807015;
+	margin:0;
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+/*----------------------------------------*/
+div.container{
+	width:800px;
+	box-sizing:border-box;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*----------------------------------------*/
+div.header{
+	width:100%;
+	position:fixed;
+	height:80px;
+	min-width:800px;
+	background:rgba(128,21,21,0.7); /*alpha   1不透明 0 透明*/
+	z-index:10;
+}
+
+/*----------------------------------------*/
+
+div.content{
+	background:#fff;
+	padding:20px 50px 30px 50px;
+	text-align:justify;
+	position:relative; /*absolute 絕對 relative 相對*/
+	top:80px;
+	z-index:5;
+}
+
+/*----------------------------------------*/
+div.footer{
+	height:60px;
+	background:#554900;
+	text-align:center;
+	line-height:60px;
+}

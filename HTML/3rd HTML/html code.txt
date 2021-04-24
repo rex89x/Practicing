@@ -1,0 +1,180 @@
+
+<!-------------------------------------->
+<!--------------news bar------------->
+<div class="newsbar">
+            <div class="news">
+                    <img src="images/4.jpg"/width="150",height="300"> 
+                    <p>【國際權威評鑑】果樹女神(227g)<br/>優惠價 $350 元 / 原價 $350 元</p>     
+                    <input type="button" value="我要購買" onclick="location.href='http://www.wibibi.com/info.php?tid=117'">      	
+            </div>
+            <div class="news">
+                    <img src="images/5.jpg"/width="150",height="300"> 
+                    <p>【國際評鑑雙認證】義式咖啡豆(227g)<br/>優惠價 $275 元 / 原價 $275 元</p> 
+                    <input type="button" value="我要購買" onclick="location.href='http://www.wibibi.com/info.php?tid=117'">
+            </div>
+            <div class="news">        
+                    <img src="images/6.jpg"/width="150",height="300"> 
+                    <p>耶加雪菲(227g)<br/>優惠價 $300 元 / 原價 $300 元</p>  
+                    <input type="button" value="我要購買" onclick="location.href='http://www.wibibi.com/info.php?tid=117'">
+            </div>
+                   
+</div>
+
+/*---------------------------*/
+/* 定義內容                   */
+/*---------------------------*/
+div.content{
+	width:100%;  
+    padding:0px 50px;   
+}
+
+h1.images{
+	position:relative;
+}
+
+h1{
+	position:relative;
+	margin-top:-55px;
+	margin-left:80px;
+}
+
+div.news{
+	position:relative;
+	float:left;
+	font-size:15px;
+}
+
+div.news.buttom{
+    width:100px;
+}
+
+div.news:not(:last-child){
+	margin-right:60px;
+}
+div.newsbar:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*---------------------------*/
+<!---------------------------------------->
+
+<!--------------------------------------->
+<!-----------navbar-------------------->
+<div class="navbar">
+            <ul>
+                <li><a href="https://www.muji.com/tw/">MUJI無印良品</a></li>
+                <li><a href="https://www.muji.com/tw/">商品情報</a></li>
+                <li><a href="https://www.muji.com/tw/">EVENT</a></li>
+                <li><a href="https://www.muji.com/tw/">良品生活研究所</a></li>
+                <li><a href="https://www.muji.com/tw/">店鋪一覽</a></li>
+                <li><a href="https://www.muji.com/tw/">企業情報</a></li>
+                <li><a href="https://www.muji.com/tw/">顧客服務</a></li>
+                <li><a href="https://www.muji.com/tw/">卡友專區</a></li>
+                <li><a href="https://www.muji.com/tw/">人才募集</a></li>
+                <li><a href="https://www.muji.com/tw/">About MUJI</a></li>
+           </ul>
+</div>     
+
+/*---------------------------*/
+/* 定義導覽列                 */
+/*---------------------------*/
+div.navbar{
+    width:1250px;
+    height:60px;	
+    margin:20px 0px 0px 75px;	
+    text-align: center;
+}
+
+
+
+ul{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+ul li{
+    width:125px;
+    height:40px;
+    line-height:60px;	
+    text-align:center;
+    float:left;
+}
+
+
+ul li:nth-child(1){
+    font-size:19px;
+    font-weight: 900;
+}
+
+ul li:not :nth-child(1){
+    font-size:15px;
+    font-weight: 100;
+}
+
+
+ul li a{
+    text-decoration:none;
+    color:#000;	
+}
+
+<!----------------------------------------------------->
+
+<!----------------------------------------------------->
+
+<!----------------------header------------------------->
+<div class = "header">
+    <img src="images/1.jpg">
+    <img src="images/2.jpg" class = "search">
+        <ul class = "navbar">
+            <li>門市服務據點 <a href="http://www.wibibi.com"></a></li>
+            <li>聯繫我們 <a href="http://www.wibibi.com"></a></li>
+            <li>我們的品牌 <a href="http://www.wibibi.com"></a></li>
+            <li>部落格 <a href="http://www.wibibi.com"></a></li>
+            <li>購物筆記 <a href="http://www.wibibi.com"></a></li>
+        </ul>
+    
+</div>
+
+div.header{
+	width:950px;
+	height:100px;
+	min-width:950px;
+	background:#fff;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:10;
+}
+
+div.header img{
+	position: absolute;
+}
+
+img.search{
+	top:50px;
+	left:1090px;
+}
+
+/*---------------------------*/
+/* 定義導覽列                */
+ul.navbar{
+    width:950px;
+    list-style-type:none;
+    margin:0;
+	padding:0;
+	margin-left:450px;
+}
+
+ul.navbar li{
+    width:100px;
+    height:40px;
+    line-height: 40px;
+	text-align:center;
+    float:left;
+}
+
+/*---------------------------*/
+
+<!----------------------------------------------------->

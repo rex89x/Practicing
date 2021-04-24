@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*---------------------------*/
+/* 引用思源中文                */
+/*---------------------------*/
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
+
+
+
+/*---------------------------*/
+/* 定義網頁                   */
+/*---------------------------*/
+html, body{
+    /*設定思源中文*/
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size:17px;
+    background:#444;
+    margin:0;	
+}
+
+
+
+/*---------------------------*/
+/* 定義標題                   */
+/*---------------------------*/
+div.header{
+    width:100%;
+    min-width:800px;
+    height:80px;
+    margin-left:auto;
+    margin-right:auto;
+    background:rgba(153,153,153,0.7);
+    position:fixed;
+    z-index:10;
+    box-shadow:0px 2px 5px 0px #000;
+}
+
+
+
+/*---------------------------*/
+/* 定義導覽列                 */
+/*---------------------------*/
+div.navbar{
+    width:700px;
+    height:40px;	
+    margin:40px auto 0px auto;	
+}
+
+div.navbar ul{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+div.navbar ul li{
+    width:150px;
+    height:40px;
+    line-height:40px;	
+    text-align:center;
+    float:left;
+}
+
+div.navbar ul li:nth-child(2){
+    margin-right:100px;
+}
+
+div.navbar ul li a{
+    text-decoration:none;
+    color:#fff;	
+}
+
+
+
+/*---------------------------*/
+/* 定義logo                  */
+/*---------------------------*/
+img.logo{
+    width:80px;
+    height:80px;
+    border-radius:40px;
+    position:absolute;
+    left:50%;
+    margin-left:-40px;
+    top:20px;
+    box-shadow:0px 2px 5px 0px #000;
+    z-index:20;
+}
+
+
+
+/*---------------------------*/
+/* 定義容器                   */
+/*---------------------------*/
+div.container{
+    width:800px;
+    box-sizing:border-box;	
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    padding-top:80px;
+    z-index:5;
+}
+
+
+
+/*---------------------------*/
+/* 定義內容                   */
+/*---------------------------*/
+div.content{	   
+    padding:20px 50px;
+    background:#fff;
+    text-align:justify;    
+}
+
+
+/*---------------------------*/
+/* 定義news                   */
+/*---------------------------*/
+div.newsbar{
+    margin-top:20px;
+    margin-bottom:20px;	
+}
+
+div.newsbar:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+
+/*---------------------------*/
+/* 定義separator              */
+/*---------------------------*/
+h2.separator{
+	width:100%;
+	height:40px;
+	border-bottom:1px dotted #000;
+	margin-bottom:40px;
+}
+
+h2.separator p{
+	width:300px;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	background:#fff;
+	margin:0 auto;
+}
+
+div.news{
+    font-family: 'Crimson Text', serif, 'cwTeXFangSong';
+    font-weight:550;
+    width:220px;
+    height:220px;
+    text-align:justify;
+    float:left;
+	border:1px solid #000;	
+	box-sizing:border-box;
+}
+
+div.news:not(:last-child){
+	margin-right:20px;
+}
+
+
+div.news h2{
+    font-size:18px;
+}
+
+div.news p{
+    font-size:16px;
+}
+
+
+div.clear{
+    clear:both;
+}
+
+
+/*---------------------------*/
+/* 定義表尾                   */
+/*---------------------------*/
+div.footer{
+    height:60px;    
+    line-height:60px;
+    background:#CCC;
+    font-size:14px;
+    text-align:center;    
+}

@@ -1,0 +1,5 @@
+div.content:after{
+    content:'';
+    display:block;
+    clear:both;
+}

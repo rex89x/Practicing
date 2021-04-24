@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body{
+	background-color:#0CC;
+	margin:0;
+	font-family:'VT323', '標楷體' ,monospace;
+}
+
+/*--------------------------------------------------*/
+
+
+/*------------------------------------------------------*/
+
+div.container{
+	width : 800px;
+	box-sizing:border-box;
+	background-color:#fff;
+	
+	/*
+	margin-left:auto;
+	margin-right:auto;
+	*/
+	margin:30px auto;
+	
+	text-align:justify;
+	/*
+	padding:30px;
+	*/
+	
+	/*
+	padding-bottom:30px;
+	padding-top:30px;
+	padding-left:50px;
+	padding-right:50px;
+	*/
+	
+	/*上 右 下 左*/
+	/*
+	padding:30px 50px 30px 50px;
+	*/
+	
+	/* 上 右 上對面 右對面*/
+	/*
+	padding:30px 50px;
+	*/
+	
+	/*影子往上 影子往下 模糊  影子延展 影子顏色*/
+	box-shadow:3px 3px 10px 1px #000;
+}
+
+/*--------------------------------------------------*/
+
+div h1{
+	letter-spacing:2px;
+}
+
+div p{
+	line-height:22px;
+}

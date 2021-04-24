@@ -1,0 +1,148 @@
+html, body{
+    margin-left:0;
+    margin-top:0;
+}
+
+
+/*------------------header------------------*/
+div.header{
+    width:100%;
+    height:20px;
+    background-color:#000;
+    padding-left:182px;
+}
+
+div.navbar{
+    width:350px;
+    height:20px;		
+    text-align: center;
+    position: absolute;
+    float:left;
+    margin-left:550px;
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+ul li{
+    width:70px;
+    height:20px;
+    line-height:20px;	
+    text-align:center;
+    float:left;
+}
+
+ul li a{
+    text-decoration:none;
+    color:#fff;	
+}
+
+div.title{
+    float:left;
+    width:400px;
+    height:20px;
+    margin-top:-10px;
+}
+
+div.title h1{
+    font-size:16px;
+    color:#fff;
+}
+
+/*------------------------------------------------------*/
+
+div.container-top{
+    height:450px;
+    background-color:#65067a;
+}
+
+div.content-top{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/*------------------------------------------------------*/
+ul.nav1{
+    padding-top:10px;
+    list-style-type:none;
+}
+
+ul.nav1 li:hover{
+    text-decoration: underline;
+}
+
+ul.nav1 li:nth-child(1)
+ul.nav1 li:nth-child(2)
+ul.nav1 li:nth-child(3){
+    width:70px;
+    height:20px;
+    line-height:20px;	
+    text-align:center;
+    float:left;
+}
+
+ul.nav1 li:nth-child(4){
+    width:140px;
+    height:20px;
+    line-height:20px;	
+    text-align:center;
+    float:left;
+}
+
+ul.nav2{
+    width:100px;
+    float:left;
+    margin-left:140px;
+    border-left: 1px solid #FF3502;
+}
+
+ul.nav2 li a{
+    letter-spacing: 5px;
+    font-size:10px;
+}
+
+ul.nav2 li:hover{
+    text-decoration: underline;
+}
+/*------------------------------------------------------*/
+
+
+
+div.content-top ul li a{
+    text-decoration:none;
+    color:#fff;	
+}
+
+div.nav{
+    
+}
+
+img.logo{
+    float:left;
+}
+
+img.img{
+    margin-top:10px;
+}
+
+/*------------------------------------------------------*/
+div.container-bottom{
+    padding-top:30px;
+}
+
+div.content-bottom{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.content-bottom p{
+    padding-left:250px;
+}
+
+
+

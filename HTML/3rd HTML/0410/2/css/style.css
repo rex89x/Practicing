@@ -1,0 +1,29 @@
+html, body{
+    background: #88CC88;
+}
+
+.cards img{
+    width:100%;
+}
+
+.btn{
+    background:#550000;
+    color:#fff;
+}
+
+.btn:hover{
+    background:#558080;
+    color:#fff;
+}
+
+div.card-block{
+    background: #669999;
+}
+
+.navbar{
+    background: #CD88AF;
+}
+
+div.jumbotron{
+    background: #D49A6A;
+}

@@ -1,0 +1,128 @@
+/*==========================================*/
+/* 設定選用顏色                               */
+/*==========================================*/
+:root{
+    --nav-1:#FFEAAA;
+    --nav-2:#D4BA6A;
+    --nav-3:#AA8E39;
+    --nav-4:#806515;
+    --nav-5:#554000;	
+}
+
+
+/*==========================================*/
+/* 客製化導覽列                              */
+/*==========================================*/
+/*---------------------------*/
+/* 導覽列的背景顏色             */
+/*---------------------------*/
+nav.navbar{
+    background:var(--nav-5);	
+}
+
+
+/*---------------------------*/
+/* 導覽列收合的menu            */
+/*---------------------------*/
+.navbar .navbar-toggler{
+    background:var(--nav-3);	
+    border:none;
+    outline:0 none;
+}
+
+
+/*---------------------------*/
+/* 導覽列的商標                */
+/*---------------------------*/
+nav.navbar a.navbar-brand{
+    color:var(--nav-1);
+    font-weight:800;
+}
+
+nav.navbar a.navbar-brand:hover{
+    color:#fff;
+}
+
+
+/*-------------------------*/
+/* 導覽列的項目              */
+/*-------------------------*/
+nav.navbar ul.navbar-nav li.nav-item a.nav-link{   
+    color:var(--nav-2);
+}
+
+nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover{   
+    color:#fff !important;
+}
+
+nav.navbar ul.navbar-nav li.nav-item a.nav-link:focus{
+    color:var(--nav-2);
+}
+
+nav.navbar ul.navbar-nav li.nav-item a.nav-link:visited{
+    color:var(--nav-2);
+}
+
+
+/*---------------------------*/
+/* 目前所在項目設定           */
+/*---------------------------*/
+nav.navbar ul.navbar-nav li.nav-item.active a.nav-link{
+    color:var(--nav-1);
+}
+
+nav.navbar ul.navbar-nav li.nav-item.active a.nav-link:hover{
+    color:#fff;
+}
+
+
+/*------------------------------*/
+/* 導覽列的下拉式項目              */
+/*------------------------------*/
+nav.navbar ul.navbar-nav li.dropdown a.nav-link{
+    color:var(--nav-2);
+}
+
+nav.navbar ul.navbar-nav li.dropdown a.nav-link:hover{
+    color:#fff;
+}
+
+
+/*------------------------------*/
+/* 下拉式選單                     */
+/*------------------------------*/
+.dropdown-menu{
+    background:var(--nav-2);	
+}
+
+.dropdown-menu a{
+    color:var(--nav-5);	
+}
+
+.dropdown-menu a:hover{
+    background:var(--nav-1);
+    color:#fff;
+}
+
+
+/*------------------------------*/
+/* 輸入項目及按鈕                  */
+/*------------------------------*/
+input[type="text"]:focus{   
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+    outline: 0 none;
+}
+
+.navbar form button,
+.navbar form button:visited,
+.navbar form button:focus{
+    background:var(--nav-3);
+    color:#fff;
+    border:none;
+}
+
+.navbar form button:hover{
+    background:var(--nav-2);
+    color:#000;
+}

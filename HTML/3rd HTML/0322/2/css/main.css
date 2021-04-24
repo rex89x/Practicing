@@ -1,0 +1,15 @@
+html, body{
+    width:1200px;
+}
+
+img.logo{
+    margin-left:88px;
+}
+
+div.list{
+    float: left;
+}
+
+div.content{
+    margin-left: 88px;
+}

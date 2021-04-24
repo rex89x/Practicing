@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/*---------------------------*/
+/* 引用思源中文                */
+/*---------------------------*/
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+
+/*---------------------------*/
+/* 定義網頁                   */
+/*---------------------------*/
+html, body{
+    /*設定思源中文*/
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size:17px;
+    background:#000;
+    margin:0;	
+}
+
+
+
+/*---------------------------*/
+/* 定義標題                   */
+/*---------------------------*/
+div.header{
+    width:100%;
+    min-width:950px;
+    height:80px;
+    margin-left:auto;
+    margin-right:auto;
+    background:rgba(153,153,153,0.7);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:10;
+    box-shadow:0px 2px 5px 0px #000;
+}
+
+
+
+
+
+
+
+/*---------------------------*/
+/* 定義logo                  */
+/*---------------------------*/
+
+
+
+
+
+
+/*---------------------------*/
+/* 定義內容                    */
+/*---------------------------*/
+div.content{
+    width:900px;
+    box-sizing:border-box;	
+    background:#fff;
+    text-align:justify;   
+		
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    margin-top:80px;
+    z-index:5;
+}
+
+div.content:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+
+/*---------------------------*/
+/* 定義內容(左邊)              */
+/*---------------------------*/
+div.left{
+    width:150px;	
+    box-sizing:border-box;
+    float:left;
+    font-size:14px;
+    background:#fff011;
+    padding:30px 10px;	
+}
+
+
+
+/*---------------------------*/
+/* 定義內容(右邊)              */
+/*---------------------------*/
+
+table tr:nth-child(1) td{
+    width: 300px;
+    height: 300px;
+}
+
+table tr:nth-child(2) td{
+	padding-left:10px;
+}
+
+table tr:nth-child(3) td{
+    font-size: 12px;
+    padding-top: 20px;
+    padding-right: 30px;
+    height: 100px;
+    vertical-align: top;
+}
+
+
+
+table{
+    width: 900px;
+    height: 500px;
+}
+
+table tr td img{
+    width: 270px;
+    height: 270px;
+    border: 1px solid #e6dcc1;
+}
+
+table tr:nth-child(2) td{
+    color: #523218;
+    border-left: 5px solid #523218;
+}
+
+
+
+/*---------------------------*/
+/* 定義表尾                   */
+/*---------------------------*/
+div.footer{
+    width:100%;
+    min-width:950px;	
+    height:80px;  
+    padding-top:30px;  
+    line-height:30px;
+    background:#333;
+    color:#fff;
+    font-size:14px;
+    text-align:center;    
+}
