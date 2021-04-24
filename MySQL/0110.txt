@@ -1,0 +1,47 @@
+select DATEDIFF(return_date,rental_date) from rental where customer_id = 7 order by rental_date asc limit 1;
+select rental_date from rental where customer_id = 7 order by rental_date asc limit 1,1;
+select rental_date from rental where customer_id = 7 order by rental_date asc limit 4,1;
+
+
+CREATE TABLE `delay10456040` (
+  `id` int(11) NOT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `times` int(11) DEFAULT NULL,
+  `up_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `t_ddelay10456040` (
+  `id` int(11) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `times` int(11) DEFAULT NULL,
+  `up_time` varchar(45) DEFAULT NULL,
+  `ch_type` varchar(45) DEFAULT NULL,
+  `ch_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE FUNCTION `wt_func` (userID int) 
+RETURNS INTEGER READS SQL DATA
+BEGIN
+    declare cnt INT;
+    declare save INT(11);
+    
+    SELECT count(*) into cnt 
+    from rental 
+    where customer_id = userID;
+    
+    IF(cnt=0) then
+		set save=3;
+	ELSEIF(cnt>=2 AND cnt<5) then
+		set save=5;
+	ELSEIF(cnt>=5) then
+		set save=7;
+    END IF;
+RETURN save;
+END
+
+

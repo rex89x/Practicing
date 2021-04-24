@@ -1,0 +1,89 @@
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: ntub10456040
+-- ------------------------------------------------------
+-- Server version	8.0.12
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customermain`
+--
+
+DROP TABLE IF EXISTS `customermain`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `customermain` (
+  `CustomID` int(11) NOT NULL AUTO_INCREMENT,
+  `CustCHName` varchar(80) NOT NULL,
+  `CustESName` varchar(80) DEFAULT NULL,
+  `CustPIDCode` varchar(16) NOT NULL DEFAULT ' ',
+  `CustTeleNo` varchar(80) NOT NULL DEFAULT ' ',
+  `CustFaxNo` varchar(80) DEFAULT NULL,
+  `CustEMail` varchar(120) DEFAULT NULL,
+  `CustVAPriority` enum('A','B','C','D','E') NOT NULL,
+  `CustAddress1` varchar(250) DEFAULT NULL,
+  `CustAddress2` varchar(250) DEFAULT NULL,
+  `LocationCityID` int(11) NOT NULL,
+  `CustomTypeID` int(11) NOT NULL,
+  `CustPayKindID` int(11) NOT NULL,
+  `CreateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CustomID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customermain`
+--
+
+LOCK TABLES `customermain` WRITE;
+/*!40000 ALTER TABLE `customermain` DISABLE KEYS */;
+INSERT INTO `customermain` VALUES (1,'鄒宏明','Rex Tsou','','','0920035439','rex89x@yahoo.com.tw','A','桃園市中山路800號','桃園市中山路700號',2,2,2,'2018-10-18 15:25:31'),(2,'鄒宏明','Rex Tsou','','','0920035439','rex89x@yahoo.com.tw','A','桃園市中山路800號','桃園市中山路700號',2,2,2,'2018-10-18 15:25:31');
+/*!40000 ALTER TABLE `customermain` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customerpaykind`
+--
+
+DROP TABLE IF EXISTS `customerpaykind`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `customerpaykind` (
+  `CustPayKindID` int(11) NOT NULL AUTO_INCREMENT,
+  `PayKindName` varchar(80) NOT NULL,
+  `PayKindMark` varchar(80) DEFAULT NULL,
+  `CreateDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CustPayKindID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customerpaykind`
+--
+
+LOCK TABLES `customerpaykind` WRITE;
+/*!40000 ALTER TABLE `customerpaykind` DISABLE KEYS */;
+INSERT INTO `customerpaykind` VALUES (1,'付現','','2018-10-18 15:18:20'),(2,'付現','','2018-10-18 15:18:34');
+/*!40000 ALTER TABLE `customerpaykind` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-10-18 15:50:50

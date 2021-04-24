@@ -1,0 +1,40 @@
+BEGIN
+	SET @cityname = 'Taizz';
+	prepare CITY_NAME from 'select * from sakila.city where city=?';
+	execute CITY_NAME USING @cityname;
+END
+
+
+CREATE PROCEDURE `mypc2`(IN tcname TEXT)
+BEGIN
+
+    DECLARE namebool BOOL DEFAULT TRUE;
+    DECLARE movie Text DEFAULT'';
+    DECLARE final Text DEFAULT'';
+    DECLARE cnt int default 0;
+    
+    
+    
+    -- PREPARE CITY_NAME FROM 'SELECT a.title FROM film a, actor b, film_actor c where b.actor_id = c.actor_id && a.film_id = c.film_id && b.first_name = ?';
+    -- EXECUTE CITY_NAME using @ctname;
+    
+    DECLARE namecursor CURSOR FOR
+		SELECT a.title FROM film a, actor b, film_actor c where b.actor_id = c.actor_id && a.film_id = c.film_id && b.first_name = @ctname;
+	DECLARE CONTINUE handler 
+		FOR NOT FOUND SET namebool=FALSE;
+	SET @ctname = tcname;
+	OPEN namecursor;
+    GetRowInfoLabel: WHILE(TRUE)DO
+		FETCH namecursor
+			INTO final;
+				IF NOT namebool THEN
+					LEAVE GetRowInfoLabel;
+				END IF;
+                SET movie=concat(movie,'-',final);
+                SET cnt = cnt+1;
+		END WHILE GetRowInfoLabel;
+        CLOSE namecursor;
+        SELECT cnt AS ¼Æ¶q;
+        
+        
+END

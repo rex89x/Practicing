@@ -1,0 +1,10 @@
+CREATE TRIGGER AFTER INSERT ON `actor` FOR EACH ROW BEGIN
+	
+    INSERT INTO t_actor
+    SET
+    actor_id = NEW.actor_id,
+    first_name = NEW.first_name,
+    last_name = NEW.last_name,
+    last_update = NEW.last_update;
+    
+END

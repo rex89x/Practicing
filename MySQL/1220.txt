@@ -1,0 +1,54 @@
+VIEW
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `test_view` AS
+    SELECT 
+        `a`.`actor_id` AS `actor_id`,
+        `a`.`first_name` AS `first_name`,
+        COUNT(0) AS `COUNTB`
+    FROM
+        (`actor` `a`
+        JOIN `film_actor` `b` ON ((`a`.`actor_id` = `b`.`actor_id`)))
+    GROUP BY `a`.`actor_id`
+
+
+PROCEDURE 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test_procedure`(in nameA text)
+BEGIN
+	declare boolvarie BOOL DEFAULT TRUE;
+    declare actorName TEXT DEFAULT'';
+    declare actorID TEXT DEFAULT'';
+    declare actorIndex VARCHAR(36) default'';
+    
+    declare actorCursor Cursor for select actor_id, first_name from sakila.actor;
+    declare continue handler for not found set boolvarie = false;
+    
+    set @actorname = nameA;
+    
+    open actorCursor;
+    actorIndex:while(TRUE) DO
+		fetch actorCursor into actorID,actorName;
+			if not boolvarie then
+				leave actorIndex;
+			end if;
+            
+			if(actorName = @actorname) then
+				select test_function(actorID);
+                
+			end if;
+	end while actorIndex;
+    close actorCursor;
+    
+END
+
+
+FUNCTION
+CREATE DEFINER=`root`@`localhost` FUNCTION `test_function`(textID int) RETURNS int(11)
+    READS SQL DATA
+BEGIN
+	declare actorcount INT;
+    SELECT COUNTB from sakila.test_view where actor_id = textID INTO actorcount;
+RETURN actorcount;
+END

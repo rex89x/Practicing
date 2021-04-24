@@ -1,0 +1,149 @@
+--1
+SELECT special_features as 嘿,
+COUNT(special_features) as 计秖
+from sakila.film
+group by special_features;
+
+--2
+SELECT *
+from film
+where film.length = (select max(length) from film)
+order by title asc;
+
+
+--3
+SELECT sakila.film.title as 嘿, Count(sakila.film_actor.actor_id) as 簍计秖
+from sakila.film
+INNER join sakila.film_actor ON sakila.film.film_id = sakila.film_actor.film_id
+group by sakila.film_actor.actor_id;
+SELECT a.title as 嘿, Count(b.actor_id) as 簍计秖
+from film a, film_actor b
+where a.film_id = b.film_id
+group by b.actor_id;
+SELECT a.film_id, a.title as 嘿, Count(a.film_id) as 簍计秖
+from film a, film_actor b
+where a.film_id = b.film_id
+group by b.film_id
+
+--4
+SELECT first_name, last_name , count(b.actor_id)as a
+from sakila.film_actor as b join sakila.actor as c
+where b.actor_id = c.actor_id
+group by c.actor_id
+order by a desc
+limit 0,1
+SELECT a.first_name, a.last_name, count(b.actor_id) as c
+from actor a, film_actor b
+where a.actor_id = b.actor_id
+group by b.actor_id
+order by c desc
+limit 0,1;
+SELECT concat(a.first_name, ' ',a.last_name) as 嘿, count(b.actor_id) as 计秖
+from actor a, film_actor b
+where a.actor_id = b.actor_id
+group by b.actor_id
+order by 计秖 desc
+limit 0,1;
+
+--5
+SELECT * FROM sakila.payment
+where payment_date > '2005-06-30 23:59:59' && payment_date <'2005-08-01 00:00:00'
+SELECT * FROM sakila.payment
+where payment_date Between '2005-07-01' AND '2005-07-31'
+SELECT * FROM sakila.payment
+where payment_date Between '2005-07-01 00:00:00' AND '2005-07-31 23:59:59'
+
+
+--6
+SELECT amount FROM sakila.payment
+where payment_date > '2005-07-09 23:59:59' && payment_date <'2005-07-21 00:00:00'
+SELECT amount FROM sakila.payment
+where payment_date BETWEEN '2005-07-10 00:00:00' AND '2005-07-20 23:59:59'
+SELECT amount FROM sakila.payment
+where payment_date BETWEEN '2005-07-10' AND '2005-07-20'
+
+
+--7
+SELECT a.title, count(b.film_id) as num
+from film a, inventory b, rental c
+where b.inventory_id = c.inventory_id && a.film_id = b.film_id 
+group by (b.film_id)
+having num >= (SELECT count(b.film_id) as cc
+from film a, inventory b, rental c
+where b.inventory_id = c.inventory_id && a.film_id = b.film_id 
+group by (b.film_id)
+order by (cc) desc 
+limit 9,1)
+SELECT a.title, count(b.film_id) as num
+from film a, inventory b, rental c
+where b.inventory_id = c.inventory_id && a.film_id = b.film_id 
+group by b.film_id
+order by num desc
+limit 10;
+
+
+--8
+(select a.last_name, a.store_id, a.email,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id 
+group by b.customer_id
+having a.store_id = 1
+order by ca desc, last_name asc
+limit 0,3)
+UNION
+(select a.last_name, a.store_id, a.email,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id 
+group by b.customer_id
+having a.store_id = 2
+order by ca desc, last_name asc
+limit 0,3)
+
+
+--9
+create table 
+if not exists email
+(
+first_name VARCHAR(80) NOT NULL,
+store_id INT NOT NULL,
+email VARCHAR(80) NOT NULL,
+CNT INT NOT NULL
+)
+
+INSERT INTO email
+(select a.last_name, a.store_id, a.email,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id 
+group by b.customer_id
+having a.store_id = 1
+order by ca desc, last_name asc
+limit 0,3)
+UNION
+(select a.last_name, a.store_id, a.email,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id 
+group by b.customer_id
+having a.store_id = 2
+order by ca desc, last_name asc
+limit 0,3)
+
+(select a.last_name, a.store_id,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id && b.staff_id = c.staff_id
+group by b.customer_id, b.staff_id
+having b.staff_id = 1
+order by ca desc, last_name asc
+limit 0,3)
+union
+(select a.last_name, a.store_id,count(b.customer_id) as ca
+from customer a, rental b, staff c
+where a.customer_id = b.customer_id && b.staff_id = c.staff_id
+group by b.customer_id, b.staff_id
+having b.staff_id = 2
+order by ca desc, last_name asc
+limit 0,3)
+
+--10
+SELECT title
+from film
+where description like '%cat%' && description not like '%dog%'

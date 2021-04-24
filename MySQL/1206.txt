@@ -1,0 +1,60 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetActorNameToStringVar`()
+BEGIN
+	DECLARE boolExecGetRow BOOL
+DEFAULT TRUE;
+	DECLARE sActorNameString TEXT DEFAULT'';
+    DECLARE sGetRowActorName VARCHAR(36)DEFAULT'';
+    
+    DECLARE objActorMainCURSOR CURSOR FOR
+		SELECT last_name FROM actor where first_name like 'C%';
+	DECLARE CONTINUE handler 
+		FOR NOT FOUND SET boolExecGetRow=FALSE;
+	OPEN objActorMainCURSOR;
+    GetRowInfoLabel: WHILE(TRUE)DO
+		FETCH objActorMainCURSOR
+	INTO sGetRowActorName;
+		IF NOT boolExecGetRow THEN
+			LEAVE GetRowInfoLabel;
+		END IF;
+        SET sActorNameString=
+			CONCAT(sActorNameString,'-',sGetRowActorName);
+		END WHILE GetRowInfoLabel;
+        CLOSE objActorMainCURSOR;
+        SELECT sActorNameString AS 演員名稱顯示;
+END
+
+
+
+CREATE PROCEDURE `GetActorNameToStringVarNEW` ()
+BEGIN
+	DECLARE boolExecGetRow BOOL
+DEFAULT TRUE;
+	DECLARE sActorNameStringA TEXT DEFAULT'';
+    DECLARE sActorNameStringB TEXT DEFAULT'';
+    DECLARE sActorNameStringC TEXT DEFAULT'';
+    DECLARE sGetRowActorName VARCHAR(36)DEFAULT'';
+    
+    DECLARE objActorMainCURSOR CURSOR FOR
+		SELECT last_name FROM actor where first_name like 'C%';
+	DECLARE CONTINUE handler 
+		FOR NOT FOUND SET boolExecGetRow=FALSE;
+	OPEN objActorMainCURSOR;
+    GetRowInfoLabel: WHILE(TRUE)DO
+		FETCH objActorMainCURSOR
+			INTO sGetRowActorName;
+				IF NOT boolExecGetRow THEN
+					LEAVE GetRowInfoLabel;
+				END IF;
+                if(length(sGetRowActorName)<5) then
+				SET sActorNameStringA=concat(sActorNameStringA,'-',sGetRowActorName);
+                elseif(length(sGetRowActorName)<5) then
+                SET sActorNameStringB=CONCAT(sActorNameStringB,'-',sGetRowActorName);
+                elseif(length(sGetRowActorName)>=10) then 
+                SET sActorNameStringC=CONCAT(sActorNameStringC,'-',sGetRowActorName);
+                end if;
+		END WHILE GetRowInfoLabel;
+        CLOSE objActorMainCURSOR;
+        SELECT sActorNameStringA AS A演員名稱顯示,
+        sActorNameStringB AS B演員名稱顯示, 
+        sActorNameStringC AS C演員名稱顯示;
+END
