@@ -1,0 +1,100 @@
+Data Structure L1
+
+Numeric Data : 0,1,2,3,...........,9	可用(Operator)來做運算的資料
+Alphanumeric Data : A,B,C,.............,+,*		非數值資料 (Non-Numeric Data)
+
+-------------------------------------------------------------
+
+Primitive Data Type		不能以其他型態來定義的資料型態		(Scalar Data Type)
+EX : (int) (float) (char) (bool)
+
+Structured Data Type	比基本資料型態更高一層的資料型態
+EX : (string) (array) (pointer) (list) (file)
+
+Abstract Data Type		定義資料型態所具備的數學關係	表示一種(Information Hiding) 的精神及關係
+EX : (Stack) 是一種先進後出 (First In, Last Out)的資料運作方式，就是一種典型的ADT模式
+
+-------------------------------------------------------------
+
+Data Structure Application
+		Tree Structure 	 : Large-scale online games change scenes using Tree Structure like (BSP tree)、(Quadtree)、(Octree)
+		Shortest Path 	 : Using in Global Positioning System 
+		Searching Engine : Using in Website collect information
+
+Algorithm	+	Data Structure	  ->	Application
+
+-------------------------------------------------------------
+
+Algorithm Condition 		Input輸入				0或多個輸入資料，這些輸入必須有清楚的描述或定義
+							Output輸出				至少會有一個輸出結果，不能沒有輸出結果
+							Definiteness明確性		每一個指令或步驟必須是簡潔明確而不含糊的
+							Finiteness有限性		在有限步驟後一定會結束，不會產生無窮迴圈
+							Effectiveness有效性		步驟清楚且可行，能讓使用者用紙筆計算求出答案
+							
+Pseudo-Language				接近高階程式語言的寫法，不能直接放進電腦中執行的語言。
+							一般都需要特定的Preprocessor，或者用手寫轉換成真正的電腦語言		EX : SPARK、PASCAL-LIKE
+
+Flow Diagram							
+							開始及結束 -> 長橢圓符號
+							流程符號   -> 箭頭
+							輸入/輸出  -> 平行四邊形
+							處理符號   -> 正方形
+							決策判斷   -> 菱形
+							迴圈符號   -> 長方菱形 虛線拉出 圓形 並且箭頭返回
+							副程式	   -> 長方形內有一個長方形
+							報表	   -> 長方形下方有波浪形缺角
+							註解符號   -> 虛線搭配半個長方形
+							
+-------------------------------------------------------------
+
+Common Use Algorithm
+				Divide And Conquer					將一個難以直接解決的大問題依照不同概念，分割成二或多個子問題。
+				Recursive							反覆執行Function直到跳出執行的一種演算法。
+				Iterative Method					沒辦法使用公式一次求解，需反覆運算。
+				Enumeration Algorithms				根據問題，一一舉出所有問題的解答，最終達到解決整個問題的目的。
+				Greed Method						從開始就採取當前狀態下最有利或最好的的選擇，持續在每一步驟中選擇最佳的方式。
+				
+-------------------------------------------------------------
+
+程式開發流程
+				可讀性Readability : 閱讀及理解容易
+				平均成本低		  : 不侷限編碼的成本，包括執行、編譯、維護、學習、偵錯、更新
+				可靠度高		  : 穩定性高則不易產生Side Effect
+				可撰寫性高		  : 對於針對需求所撰寫的程式相對容易
+				
+				1.Requirements				了解程式所要解決的問題，有哪些輸入輸出
+				2.Design And Plan			根據需求，選擇適合的資料結構，以任何方式寫一個演算法解決問題
+				3.Analysis And Discussion	思考其他資料結構及演算法，最後選出最適合的
+				4.Coding					將分析的結論，寫成初步的CODE
+				5.Verification				最後確認程式的輸出是否符合需求，細部的執行程式並進行許多相關測試
+				
+-------------------------------------------------------------
+
+Object-Oriented Programming
+								Encapsulation	利用Class來實作ADT	將代表物件特徵的資料隱藏，定義Method做為操作資料的介面，令使用者只能接觸到這些Method而無法直接使用DATA，做到Information Hiding
+								Inheritance		允許程式碼Code Reusability	允許我們定義一個新的Class來繼承既有的Class，進而使用或修改繼承來的Method，並可在子類別中加入新的資料與函數
+								Polymorphism	可讓軟體在發展和維護時，達到充分的延伸性。	利用類別的繼承架構，先建立一個基礎類別物件，使用者可透過物件的轉型宣告將此物件向下轉型為衍生類別物件
+
+-------------------------------------------------------------
+
+演算法效能分析		對一個程式或演算法效能的評估
+						Time Complexity		程式執行時間
+							是一種以概量精神來衡量所需要的記憶體空間。		固定空間記憶體[基本程式碼、常數、變數]		變動空間記憶體[隨程式進行而改變大小的使用空間:參考型態變數]
+						Space Complexity	程式在電腦記憶體所佔的空間大小
+							可以利用一種概量的觀念來做為衡量執行時間。
+							
+-------------------------------------------------------------
+
+Big-Oh
+			O(1)
+			O(n)
+			O(log2n)
+			O(n^2)
+			O(n^3)
+			(2^n)
+			O(nlog2n)
+
+
+
+
+
