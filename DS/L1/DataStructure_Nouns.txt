@@ -1,0 +1,2 @@
+Abstract Data Type 抽象資料型態
+如果檔案中 Record 、 Stack 、 Queue ，是一種事實上沒有程式實體的資料型態。
